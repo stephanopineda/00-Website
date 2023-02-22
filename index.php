@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <?php
     include 'connections.php';
+    include 'sessions.php';
 ?>
 
 <html>
@@ -9,17 +10,20 @@
     </head>
     <body>
         <div>
-            Signed in as: <?php echo 'test'; ?>
+            Signed in as: <?php echo $first_name; ?>
         </div>
 
         <div>
-            <form>
-                <input type = 'button' name = 'login' value="Login">
-                <a href="signin.php">Login</a>
-                <br>
-                <input type = 'button' name = 'signup' value="Sign up">
-                <a href="signup.php">Sign up</a>
-            </form>
+            <?php 
+            if ($first_name === 'Guest'){
+                echo "<a href = 'signin.php'> Login   </a>
+                      <a href = 'signup.php'> Sign up </a>";
+            }
+            else
+            {
+                echo "<a href = 'logout.php'> Logout  </a>";
+            }
+            ?>
         </div>
     </body>
 </html>

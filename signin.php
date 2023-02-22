@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <?php
     include 'connections.php';
+    include 'sessions.php';
+    include 'sessionsUs.php';
 ?>
 
 <html>
@@ -10,13 +12,17 @@
     <body>
         <div>
             <form method = 'POST'>
-                <input type = 'text' name = 'user' placeholder="Email address or Username">    <br>
-                <input type = 'text' name = 'password' placeholder="Password">      <br>
-                <input type = 'submit' name = 'login' value="Login">                <br>
-                <a href="recover.php">Forget your password?</a>                     <br>
+                <input type = 'text' name = 'user' placeholder="Email address or Username"> <br>
+                <input type = 'password' name = 'password' placeholder="Password">          <br>
+                <input type = 'submit' name = 'login' value="Login">                        <br>
+                <a href="recover.php">Forget your password?</a>                             <br>
                 <a href="signup.php">Sign up</a>
             </form>
         </div>
+
+        <script>
+            
+        </script>
 
         <?php
             if(isset($_POST["login"])) {
@@ -25,16 +31,16 @@
                 $userExists = mysqli_query($conn, "SELECT * FROM registeredUsers WHERE email = '".$user."' OR username = '".$user."'");
 
                 if(mysqli_num_rows($userExists)) {
-                    $sql = "SELECT email, password FROM registeredUsers WHERE (email = '".$user."' OR username = '".$user."') AND password = '".$password."';";
+                    $sql = "SELECT email, first_name, user_type FROM registeredUsers WHERE (email = '".$user."' OR username = '".$user."') AND password = '".$password."'";
                     $result = $conn->query($sql);
 
                     if ($result->num_rows > 0) {
-                        echo "
-                        <script>
-                            alert('Login Successful');
-                            document.location='index.php'
-                        </script>
-                        ";
+                        $row = $result->fetch_assoc();
+                        $_SESSION["email"] = $row['email'];
+                        $_SESSION["first_name"] = $row['first_name'];
+                        $_SESSION["user_type"] = $row['user_type'];
+                        header('Location: index.php');
+                        exit;
                     }
 
                     else {

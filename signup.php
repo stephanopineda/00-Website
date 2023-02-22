@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <?php
     include 'connections.php';
+    include 'sessions.php';
+    include 'sessionsUs.php';
 ?>
 
 <html>
@@ -42,6 +44,7 @@
         <!------------------------------------- Programming ----------------------------------------->
         <script>
             document.getElementById('termsandcond').required = true;
+            
         </script>
 
         <?php
@@ -54,20 +57,21 @@
                 $phone_num = $_POST['phone_num'];
                 $password = $_POST['password'];
                 $date_registered = date("Y-m-d H:i:s");
-                $user_type = 'user';
+                $user_type = "user";
 
                 $emailExists = mysqli_query($conn, "SELECT * FROM registeredUsers WHERE email = '".$email."'");
                 $usernameExists = mysqli_query($conn, "SELECT * FROM registeredUsers WHERE username = '".$username."'");
                 
                 if((mysqli_num_rows($emailExists) === 0) && (mysqli_num_rows($usernameExists) === 0)) { 
-                    $sql = "INSERT INTO registeredUsers(first_name, last_name, username, email, phone_num, password, date_registered)
+                    $sql = "INSERT INTO registeredUsers(first_name, last_name, username, email, phone_num, password, date_registered, user_type)
                         VALUES ('$first_name',
                         '$last_name',
                         '$username',
                         '$email',
                         '$phone_num',
                         '$password',
-                        CURRENT_TIMESTAMP())";
+                        CURRENT_TIMESTAMP(),
+                        '$user_type')";
 
                     if(mysqli_query($conn, $sql)){
                         echo "
@@ -83,10 +87,10 @@
                     mysqli_close($conn);
                 }
 
-                else if((mysqli_num_rows($emailExists) > 0) && (mysqli_num_rows($usernameExists) === 0)){
+                elseif((mysqli_num_rows($emailExists) > 0) && (mysqli_num_rows($usernameExists) === 0)){
                     echo "Email already exists. You may Login instead.";
                 }
-                else if((mysqli_num_rows($emailExists) === 0) && (mysqli_num_rows($usernameExists) > 0)){
+                elseif((mysqli_num_rows($emailExists) === 0) && (mysqli_num_rows($usernameExists) > 0)){
                     echo "Username already exists. You may Login instead.";
                 }
                 else {
