@@ -44,7 +44,7 @@
         <!------------------------------------- Programming ----------------------------------------->
         <script>
             document.getElementById('termsandcond').required = true;
-            
+            // validate password while typing
         </script>
 
         <?php
