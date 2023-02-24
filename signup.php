@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <?php
     include 'connections.php';
-    include 'sessions.php';
-    include 'sessionsUs.php';
+    include 'sAdminRedirect.php';
+    include 'userRedirect.php';
 ?>
 
 <html>
@@ -18,7 +18,7 @@
                 <input type = 'text' name = 'last_name' placeholder="Last Name" required>                       <br>
                 <input type = 'text' name = 'username' placeholder="Username" required>                         <br>
                 <input type = 'email' name = 'email' placeholder="Email Address" required>                      <br>
-                <label for="phone">+63</label>
+                <label for = "phone_num">+63</label>
                     <input type="tel" name="phone_num" pattern="[9]{1}[0-9]{9}" placeholder= "Phone Number">    <br>
                 <input type = 'password' name = 'password' placeholder="Password" required><br>
                 <input type = 'password' name = 'conpassword' placeholder="Confirm Password" required><br>
@@ -41,7 +41,7 @@
             <div> YOUR BEST SCENT AWAITS YOU.... </div>
         </div>
         
-        <!------------------------------------- Programming ----------------------------------------->
+        <!------------------------------------- Scripts ----------------------------------------->
         <script>
             document.getElementById('termsandcond').required = true;
             // validate password while typing

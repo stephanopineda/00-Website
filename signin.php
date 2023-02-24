@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <?php
     include 'connections.php';
-    include 'sessions.php';
-    include 'sessionsUs.php';
+    include 'sAdminRedirect.php';
+    include 'userRedirect.php';
 ?>
 
 <html>
@@ -20,14 +20,15 @@
             </form>
         </div>
 
+        <!------------------------------------- Scripts ----------------------------------------->
         <script>
             
         </script>
 
         <?php
             if(isset($_POST["login"])) {
-                $user =  $_POST['user'];
-                $password = $_POST['password'];
+                $user =  mysqli_real_escape_string($conn, $_POST['user']);
+                $password = mysqli_real_escape_string($conn, $_POST['password']);
                 $userExists = mysqli_query($conn, "SELECT * FROM registeredUsers WHERE email = '".$user."' OR username = '".$user."'");
 
                 if(mysqli_num_rows($userExists)) {

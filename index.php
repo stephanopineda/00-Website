@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <?php
     include 'connections.php';
-    include 'sessions.php';
+    include 'sAdminRedirect.php';
 ?>
 
 <html>
@@ -15,13 +15,13 @@
 
         <div>
             <?php 
-            if ($first_name === 'Guest'){
-                echo "<a href = 'signin.php'> Login   </a>
-                      <a href = 'signup.php'> Sign up </a>";
+            if (isset($_SESSION["user_type"])){
+                echo "<a href = 'logout.php'> Logout  </a>";
             }
             else
             {
-                echo "<a href = 'logout.php'> Logout  </a>";
+                echo "<a href = 'signin.php'> Login   </a>
+                      <a href = 'signup.php'> Sign up </a>";
             }
             ?>
         </div>
