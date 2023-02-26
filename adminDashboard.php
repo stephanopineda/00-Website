@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <?php
     include 'connections.php';
-    include 'sAdminRedirect.php';
     include 'userRedirect.php';
+    include 'sAdminRedirect.php';
 ?>
 
 <html>
@@ -17,7 +17,7 @@
             <a href = 'logout.php'> Logout  </a><br><br><br>
         </div>
         <div>
-            <a href = 'adminAddProduct.php'> Add Product </a><br>
+            <a href = 'adminAddProduct.php'> Add Product </a>
         </div>
 
         <?php
@@ -26,12 +26,12 @@
             
             echo "<table>";
             echo "<tr>
-            <td>" . 'file_name'   . "</td>
-            <td>" . 'product_name'. "</td>
-            <td>" . 'stock'       . "</td>
-            <td>" . 'price'       . "</td>
-            <td>" . 'description' . "</td>
-            <td>" . 'action'      . "</td>
+            <th>" . 'file_name'   . "</th>
+            <th>" . 'product_name'. "</th>
+            <th>" . 'stock'       . "</th>
+            <th>" . 'price'       . "</th>
+            <th>" . 'description' . "</th>
+            <th>" . 'action'      . "</th>
             </tr>";
 
             while($row = $result->fetch_assoc()) {
@@ -41,14 +41,12 @@
                 <td>"  .  htmlspecialchars($row['stock'])        . "</td>
                 <td>"  .  htmlspecialchars($row['price'])        . "</td>
                 <td>"  .  htmlspecialchars($row['description'])  . "</td>
-                <td><a href = edit.php> Edit </a></td>
-                </tr>";
+                <td><a href = 'edit.php?id=".$row["id"]."' class='btnEdit'>Edit</button></td>";
             }
             
             echo "</table>";
 
             mysqli_close($conn);
         ?>
-        
     </body>
 </html>

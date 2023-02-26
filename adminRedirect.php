@@ -1,7 +1,7 @@
 <?php
 if(session_status() !== PHP_SESSION_ACTIVE) session_start();
 
-// SKIP NON-SUPERADMIN PAGES
+// SKIP NON-ADMIN PAGES
 // ADMIN REDIRECT
 if (isset($_SESSION["user_type"])) {
     $first_name = $_SESSION["first_name"];

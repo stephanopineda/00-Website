@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <?php
     include 'connections.php';
-    include 'sAdminRedirect.php';
     include 'userRedirect.php';
+    include 'sAdminRedirect.php';
 ?>
 
 <html>

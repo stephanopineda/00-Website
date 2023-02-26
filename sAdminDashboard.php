@@ -27,12 +27,12 @@
             $result = mysqli_query($conn, $query);
             echo "<table>";
             echo "<tr>
-            <td>" . 'first_name'        . "</td>
-            <td>" . 'last_name'         . "</td>
-            <td>" . 'username'          . "</td>
-            <td>" . 'email'             . "</td>
-            <td>" . 'date_registered'   . "</td>
-            <td>" . 'user_type'         . "</td>
+            <th>" . 'first_name'        . "</th>
+            <th>" . 'last_name'         . "</th>
+            <th>" . 'username'          . "</th>
+            <th>" . 'email'             . "</th>
+            <th>" . 'date_registered'   . "</th>
+            <th>" . 'user_type'         . "</th>
             </tr>";
 
             while($row = $result->fetch_assoc()) {
