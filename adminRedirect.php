@@ -5,10 +5,11 @@ if(session_status() !== PHP_SESSION_ACTIVE) session_start();
 // ADMIN REDIRECT
 if (isset($_SESSION["user_type"])) {
     $first_name = $_SESSION["first_name"];
-    if ($_SESSION["user_type"] === "sAdmin"){
-        header('Location: sAdminDashboard.php');
+    if ($_SESSION["user_type"] === "admin"){
+        header('Location: adminDashboard.php');
     }
 }
+
 else {
     if(!isset($first_name)) {
         $first_name = "Guest";

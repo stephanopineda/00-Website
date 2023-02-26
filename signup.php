@@ -3,6 +3,7 @@
     include 'connections.php';
     include 'sAdminRedirect.php';
     include 'userRedirect.php';
+    include 'adminRedirect.php';
 ?>
 
 <html>
@@ -52,7 +53,7 @@
             {
                 $first_name =  $_POST['first_name'];
                 $last_name = $_POST['last_name'];
-                $username = $_POST['username'];
+                $username = mysqli_real_escape_string($conn, $_POST['username']);
                 $email =  $_POST['email'];
                 $phone_num = $_POST['phone_num'];
                 $password = $_POST['password'];

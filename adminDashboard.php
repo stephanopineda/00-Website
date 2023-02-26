@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <?php
     include 'connections.php';
+    include 'sAdminRedirect.php';
     include 'userRedirect.php';
 ?>
 
@@ -16,43 +17,38 @@
             <a href = 'logout.php'> Logout  </a><br><br><br>
         </div>
         <div>
-            <a href = '.php'> Add product  </a><br>
-            <a href = '.php'>  name </a><br>
-            description
-            picture
-            price
-            stock
-
+            <a href = 'adminAddProduct.php'> Add Product </a><br>
         </div>
-        <!--
-            
-        -->
+
         <?php
-            $query = "SELECT * FROM registeredUsers WHERE user_type = 'admin'";
+            $query = "SELECT * FROM storeContent";
             $result = mysqli_query($conn, $query);
+            
             echo "<table>";
             echo "<tr>
-            <td>" . 'first_name'        . "</td>
-            <td>" . 'last_name'         . "</td>
-            <td>" . 'username'          . "</td>
-            <td>" . 'email'             . "</td>
-            <td>" . 'date_registered'   . "</td>
-            <td>" . 'user_type'         . "</td>
+            <td>" . 'file_name'   . "</td>
+            <td>" . 'product_name'. "</td>
+            <td>" . 'stock'       . "</td>
+            <td>" . 'price'       . "</td>
+            <td>" . 'description' . "</td>
+            <td>" . 'action'      . "</td>
             </tr>";
 
             while($row = $result->fetch_assoc()) {
                 echo "<tr>
-                <td>" . htmlspecialchars($row['first_name'])        . "</td>
-                <td>" . htmlspecialchars($row['last_name'])         . "</td>
-                <td>" . htmlspecialchars($row['username'])          . "</td>
-                <td>" . htmlspecialchars($row['email'])             . "</td>
-                <td>" . htmlspecialchars($row['date_registered'])   . "</td>
-                <td>" . htmlspecialchars($row['user_type'])         . "</td>
+                <td><img src='./images/" . $row['file_name']     . "' width = '100px'></td>
+                <td>"  .  htmlspecialchars($row['product_name']) . "</td>
+                <td>"  .  htmlspecialchars($row['stock'])        . "</td>
+                <td>"  .  htmlspecialchars($row['price'])        . "</td>
+                <td>"  .  htmlspecialchars($row['description'])  . "</td>
+                <td><a href = edit.php> Edit </a></td>
                 </tr>";
             }
+            
             echo "</table>";
 
             mysqli_close($conn);
         ?>
+        
     </body>
 </html>

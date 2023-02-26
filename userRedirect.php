@@ -8,6 +8,17 @@ if (isset($_SESSION["user_type"])) {
     
     if ($_SESSION["user_type"] === "user"){
         header('Location: index.php');
+        exit;
     }
 }
-
+else {
+    if(!isset($first_name)) {
+        echo "
+            <script>
+                alert('You must login first.');
+                document.location='signin.php'
+            </script>
+        ";
+        $first_name = "Guest";
+    }
+}

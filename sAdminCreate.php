@@ -2,6 +2,7 @@
 <?php
     include 'connections.php';
     include 'userRedirect.php';
+    include 'adminRedirect.php';
 ?>
 
 <html>
@@ -74,6 +75,7 @@
                     else {
                         echo "Username and Email already exists.";
                     }
+                    mysqli_close($conn);
                 }
                 else {
                     echo "
@@ -83,7 +85,6 @@
                         </script>
                     ";
                 }
-                mysqli_close($conn);
             }
         ?>
     </body>

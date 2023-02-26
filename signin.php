@@ -3,6 +3,7 @@
     include 'connections.php';
     include 'sAdminRedirect.php';
     include 'userRedirect.php';
+    include 'adminRedirect.php';
 ?>
 
 <html>
@@ -43,15 +44,14 @@
                         header('Location: index.php');
                         exit;
                     }
-
                     else {
                         echo "Check your password.";
                     }
                 }
-
                 else {
                     echo "Email or username not found.";
                 }
+                
                 mysqli_close($conn);
             }
         ?>

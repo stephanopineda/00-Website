@@ -2,6 +2,7 @@
 <?php
     include 'connections.php';
     include 'userRedirect.php';
+    include 'adminRedirect.php';
 ?>
 
 <html>

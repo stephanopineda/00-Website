@@ -2,6 +2,7 @@
 <?php
     include 'connections.php';
     include 'userRedirect.php';
+    include 'adminRedirect.php';
 ?>
 
 <html>
@@ -23,15 +24,15 @@
                 <label for= "email">Email: </label>
                     <input type = 'email' name = 'email' id = 'email' placeholder = "Email Address" readonly>             <br>
                 <label for= "first_name"> First Name: </label>
-                    <input type = 'text'     name = 'first_name'  id = 'first_name' placeholder = "First Name"       required><br>
+                    <input type = 'text'     name = 'first_name' id = 'first_name' placeholder = "First Name"       required><br>
                 <label for= "last_name">  Last Name: </label>
-                    <input type = 'text'     name = 'last_name'   id = 'last_name'  placeholder = "Last Name"        required><br>
+                    <input type = 'text'     name = 'last_name'  id = 'last_name'  placeholder = "Last Name"        required><br>
                 <label for= "username">   Username: </label>
-                    <input type = 'text'     name = 'username'    id = 'username'   placeholder = "Username"         required><br>
+                    <input type = 'text'     name = 'username'   id = 'username'   placeholder = "Username"         required><br>
                 <label for= "password">   Password: </label>
-                    <input type = 'password' name = 'password'                      placeholder = "Password"         required><br>
+                    <input type = 'password' name = 'password'                     placeholder = "Password"         required><br>
                 <label for= "conpassword">Confirm Password: </label>
-                    <input type = 'password' name = 'conpassword'                   placeholder = "Confirm Password" required><br>
+                    <input type = 'password' name = 'conpassword'                  placeholder = "Confirm Password" required><br>
                     <input type = 'submit'   name = 'update' value="Update Account">                                          
                 <a href="sAdminDashboard.php">Cancel</a>
             </form>
@@ -43,12 +44,11 @@
         </script>
 
         <?php
-            if($_SESSION["user_type"] === "sAdmin") {
-                if(isset($_POST["load"])) {
+            if(isset($_POST["load"])) {
+                if($_SESSION["user_type"] === "sAdmin") {
                     $email =  $_POST['email'];
                     $emailExists = mysqli_query($conn, "SELECT * FROM registeredUsers 
                                                         WHERE email = '".$email."' AND user_type = 'admin'");
-                    
                     if(mysqli_num_rows($emailExists)){
                         $query = "SELECT * FROM registeredUsers WHERE email = '".$email."'";
                         $result = mysqli_query($conn, $query);
@@ -65,8 +65,18 @@
                         echo "Email not in database.";
                     }
                 }
+                else {
+                    echo "
+                        <script>
+                            alert('You must login first.');
+                            document.location='signin.php'
+                        </script>
+                    ";
+                }
+            }
 
-                if(isset($_POST["update"])) {
+            if(isset($_POST["update"])) {
+                if($_SESSION["user_type"] === "sAdmin") {
                     $email =  $_POST['email'];
                     $first_name = $_POST['first_name'];
                     $last_name = $_POST['last_name'];
@@ -83,7 +93,7 @@
                                     username = '$username',
                                     password = '$password'
                                 WHERE email = '$email'";
- 
+
                         if(mysqli_query($conn, $sql)){
                             echo "
                                 <script>
@@ -99,16 +109,17 @@
                         echo "Username already exists.";
                     }
                 }
-                mysqli_close($conn);
+                else {
+                    echo "
+                        <script>
+                            alert('You must login first.');
+                            document.location='signin.php'
+                        </script>
+                    ";
+                }
             }
-            else {
-                echo "
-                    <script>
-                        alert('You must login first.');
-                        document.location='signin.php'
-                    </script>
-                ";
-            }
+            
+            mysqli_close($conn);
         ?>
     </body>
 </html>

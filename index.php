@@ -2,6 +2,7 @@
 <?php
     include 'connections.php';
     include 'sAdminRedirect.php';
+    include 'adminRedirect.php';
 ?>
 
 <html>
