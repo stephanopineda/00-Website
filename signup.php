@@ -36,11 +36,13 @@
             margin: 5px;
         }
 
-        input{
+        input[type="text"], input[type="email"], input[type="password"],input[type="tel"]{
             margin-top:10px;
             border:solid 1px #564635;
             border-radius: 15px;
-
+            height: 25px;
+            box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.2);
+            width: 250px;
         }
 
 

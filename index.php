@@ -29,7 +29,7 @@
             position: fixed;
             display: inline-block;
             bottom: 30px;
-            right: 500px;
+            right: 550px;
             font-size: 18px;
         }
 
