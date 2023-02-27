@@ -74,7 +74,7 @@
                 
                 echo "<table class=table>";
                 echo "<tr>
-                <th>" . 'file_name'   . "</th>
+                <th>" . 'picture'     . "</th>
                 <th>" . 'product_name'. "</th>
                 <th>" . 'stock'       . "</th>
                 <th>" . 'price'       . "</th>
@@ -84,12 +84,13 @@
 
                 while($row = $result->fetch_assoc()) {
                     echo "<tr>
-                    <td><img src='./images/" . $row['file_name']     . "' width = '100px'></td>
+                    <td><img src='./uploads/" . $row['file_name']     . "' width = '100px'></td>
                     <td>"  .  htmlspecialchars($row['product_name']) . "</td>
                     <td>"  .  htmlspecialchars($row['stock'])        . "</td>
                     <td>"  .  htmlspecialchars($row['price'])        . "</td>
                     <td>"  .  htmlspecialchars($row['description'])  . "</td>
-                    <td><a href = 'edit.php?id=".$row["id"]."' class='btnEdit'>Edit</td>";
+                    <td><a href = 'adminEditProduct.php?id=".$row["id"]."' class='btnEdit'>Edit
+                    <a href = 'adminRemoveProduct.php?id=".$row["id"]."' class='btnRemove'>Remove</td>";
                 }
                 
                 echo "</table>";
