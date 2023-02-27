@@ -1,0 +1,4 @@
+lightbrown: #c1a98d
+brown:      #564635
+pink:       #fbd0fc
+gray:       #c0bfb7

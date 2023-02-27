@@ -14,6 +14,7 @@
         body, html {
             height: 100%;
             margin: 0;
+            background-color: #c0bfb7;
         }
 
         .bg1{
@@ -28,14 +29,14 @@
             position: fixed;
             display: inline-block;
             bottom: 30px;
-            right: 591px;
+            right: 500px;
             font-size: 18px;
         }
 
         a{
             text-decoration:none;
             color: black;
-            margin-left: 35px;
+            margin-right: 35px;
             padding: 4px;
             background-color: white;
             border-radius: 25px;
@@ -51,6 +52,7 @@
             color:white;
             font-size: 15px;
             margin-top:2px;
+            margin-left: -15px;
 
         }
     </style>    
