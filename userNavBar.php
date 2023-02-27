@@ -5,5 +5,9 @@
           <a href = 'history.php' >History  </a>
           <a href = 'aboutUs.php' >About Us </a>";
 
+    if (isset($_SESSION["email"])){
+        echo "<a href = 'profile.php'> Profile  </a>";
+    }
+    
           
 	

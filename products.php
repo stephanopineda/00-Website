@@ -37,7 +37,7 @@
             echo "<div class='grid'>";
             while($row = $result->fetch_assoc()) {
                     echo "<div class='product'>";
-                    echo "<div class='cell picture'><img src='./images/" . $row['file_name'] . "' width = '200px'></div>";
+                    echo "<div class='cell picture'><img src='./uploads/" . $row['file_name'] . "' width = '200px'></div>";
                     echo "<div class='cell name'>" . $row['product_name'] . "</div>";
                     echo "<div class='cell description'>" . $row['description'] . "</div>";
                     //echo "<div class='cell'>" . $row['stock'] . "</div>";

@@ -43,7 +43,7 @@
                     <input type = 'text'   name = 'price' value = '<?php echo $price; ?>' required><br>
 
                 Current Product Picture:
-                    <?php echo "<img src='./images/" . $row['file_name'] . "' width = '100px'>";?><br>
+                    <?php echo "<img src='./uploads/" . $row['file_name'] . "' width = '100px'>";?><br>
 
                 <label for = 'picture'> Change Product Picture </label>
                     <input type = 'file'   name = "image"     accept=".jpg, .jpeg, .png" /> <br>
@@ -83,7 +83,7 @@
                             }
                     
                             if(empty($errors)==true){
-                                move_uploaded_file($file_tmp,"images/".$file_name);
+                                move_uploaded_file($file_tmp,"uploads/".$file_name);
                                 echo "Success";
                             }
                             else{
@@ -100,7 +100,7 @@
 
                     $productExists = mysqli_query($conn, "SELECT * FROM storeContent WHERE id = '".$id."'");
 
-                    if(mysqli_num_rows($productExists) >= 0) {
+                    if(mysqli_num_rows($productExists) != 0) {
                         $sql = "UPDATE storeContent 
                                 SET product_name = '$productName',
                                     stock = '$stock',
