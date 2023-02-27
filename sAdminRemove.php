@@ -9,16 +9,50 @@
     <head>
         <title>Remove Admin Account</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>Admin Accounts</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+
+        html,body{
+            position: absolute;
+            text-align: center;
+            margin: 0;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 25px;
+
+        }
+
+        .table{
+            margin-left: auto;
+            margin-right: auto;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            text-align: center;
+            padding: 8px;
+            border: 1px solid black;
+        }
+
+        th {
+            background-color: #dddddd;
+        }
+
+    </style>
+
     </head>
     <body>
         <div>Remove Admin Account</div>
-        <br><br>
-        <div>
+        <a href="sAdminDashboard.php">Go Back</a>
+        <div> <br>
             <form method = 'POST'>
                 <label for = 'username'>Enter Username: </label>
-                <input type = 'text' name = 'username' placeholder="Enter username" required>   <br>
+                <input type = 'text' name = 'username' placeholder="Enter username" required>
                 <input type = 'submit' name = 'remove' value="Remove">                          
-                <a href="sAdminDashboard.php">Cancel</a>
             </form>
         </div>
         <br><br>
@@ -26,7 +60,7 @@
         <?php
             $query = "SELECT * FROM registeredUsers WHERE user_type = 'admin'";
             $result = mysqli_query($conn, $query);
-            echo "<table>";
+            echo "<table class=table>";
             echo "<tr>
             <td>" . 'first_name'      . "</td>
             <td>" . 'last_name'       . "</td>
