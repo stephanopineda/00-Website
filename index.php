@@ -45,7 +45,7 @@
         }
 
         a:hover{
-            background-color: #c1a98d;
+            background-color: yellow;
         }
 
         .signed_as{
@@ -53,7 +53,7 @@
             color:white;
             font-size: 15px;
             margin-top:2px;
-            margin-left: -15px;
+            margin-left: -25px;
 
         }
     </style>    
