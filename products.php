@@ -20,7 +20,7 @@
                 }
                 else{
                     echo "<a href = 'signin.php'> Login   </a>
-                        <a href = 'signup.php'> Sign up </a>";
+                          <a href = 'signup.php'> Sign up </a>";
                 }
             ?>
         </div>
@@ -34,17 +34,18 @@
             $counter = 0;
             echo "<div class='grid'>";
             while($row = $result->fetch_assoc()) {
-                
+                    echo "<div class='product'>";
                     echo "<div class='cell picture'><img src='./images/" . $row['file_name'] . "' width = '200px'></div>";
                     echo "<div class='cell name'>" . $row['product_name'] . "</div>";
                     echo "<div class='cell description'>" . $row['description'] . "</div>";
                     //echo "<div class='cell'>" . $row['stock'] . "</div>";
                     //echo "<div class='cell'>" . $row['price'] . "</div>";
+                    echo "<div class='cell cart'><a href = 'toCart.php?id=".$row["id"]."' class='toCart'>Add to Cart</a></div>";
                     $counter++;
                     if ($counter % 3 == 0) {
                         echo '<div class="clearfix"></div>';
                     }
-                
+                    echo "</div>";
             }
             echo "</div>";
         ?>
@@ -55,10 +56,15 @@
                 grid-template-rows: repeat(2, auto);
                 grid-template-columns: repeat(3, 1fr);
                 grid-column-gap: 10px;
-                width: 600px;
+                max-width: 80%;
                 background-color: #eee;
-                padding: 10px;
+                padding: 0px;
                 box-sizing: border-box;
+            }
+            .product{
+                display: grid;
+                padding: 2%;
+                width: 100%;
             }
             .cell {
                 display: flex;
@@ -67,8 +73,9 @@
                 font-size: 16px;
                 background-color: #fff;
                 border: 1px solid #ddd;
-                padding: 10px;
+                padding: 5px;
                 box-sizing: border-box;
+                width: 100%;
             }
             .picture {
             grid-row: 1 / 2;
