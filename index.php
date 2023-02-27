@@ -8,6 +8,14 @@
 <html>
     <head>
         <title>Epiphany</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        body {
+            background: url("images/bg1.jpg") no-repeat fixed center;
+        }
+    </style>    
+
     </head>
     <body>
         <div>

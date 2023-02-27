@@ -8,6 +8,7 @@
 <html>
     <head>
         <title>Update Admin Account</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
     <body>
         <div>Update Admin Account</div>
