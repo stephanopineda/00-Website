@@ -3,6 +3,7 @@
     include 'connections.php';
     include 'sAdminRedirect.php';
     include 'adminRedirect.php';
+    include 'userNavBar.php';
 ?>
 
 <html>
