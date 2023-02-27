@@ -74,7 +74,7 @@
                             }
                     
                             if(empty($errors)==true){
-                                move_uploaded_file($file_tmp,"images/".$file_name);
+                                move_uploaded_file($file_tmp,"uploads/".$file_name);
                                 echo "Success";
                             }
                             else{
@@ -102,7 +102,7 @@
                                 echo "
                                     <script>
                                         alert('Product added.');
-                                        document.location='adminAddProduct.php'
+                                        document.location='adminDashboard.php'
                                     </script>";
                             }
                             else {
