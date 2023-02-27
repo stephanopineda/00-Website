@@ -32,6 +32,7 @@
             opacity: .86;
             font-size: 20px;
             padding: 10px;
+            border-radius: 25px;
         }
 
         label{
@@ -41,6 +42,7 @@
         .update_form input[type="text"],.update_form input[type="email"],.update_form input[type="password"]{
             float: right;
             width: 60%;
+            border-radius: 25px;
         }
 
         #cancel{

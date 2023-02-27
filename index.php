@@ -19,6 +19,7 @@
         }
 
         .bg1{
+            position: relative;
             background-image: url("images/bg1.jpg");
             height: 100%; 
             background-position: center;
@@ -27,10 +28,6 @@
         }
 
         .btn_container{
-            position: fixed;
-            display: inline-block;
-            bottom: 30px;
-            right: 550px;
             font-size: 18px;
         }
 
@@ -38,7 +35,7 @@
             text-decoration:none;
             color: black;
             margin-right: 35px;
-            padding: 4px;
+            padding: 6px;
             background-color: white;
             border-radius: 25px;
             border: 2px solid black;
@@ -49,33 +46,38 @@
         }
 
         .signed_as{
-            position: fixed;
             color:white;
             font-size: 15px;
-            margin-top:2px;
+            margin-top:5px;
             margin-left: -25px;
+        }
 
+        .btn_and_signas_container{
+            position: absolute;
+            bottom:5px;
+            right: 535px;
         }
     </style>    
 
     </head>
     <body>
         <div class="bg1">
-            <div class=btn_container>
-                <?php 
-                if (isset($_SESSION["user_type"])){
-                    echo "<a href = 'logout.php' class = logout> LOGOUT  </a>";
-                }
-                else
-                {
-                    echo "<a href = 'signin.php' class = signin > LOGIN   </a>
-                        <a href = 'signup.php' class = signup> SIGN UP </a>";
-                }
-                ?>
-                <div class="signed_as">
-                    Signed in as: <u><?php echo $first_name; ?></u>
+            <div class=btn_and_signas_container>
+                <div class=btn_container>
+                    <?php 
+                    if (isset($_SESSION["user_type"])){
+                        echo "<a href = 'logout.php' class = logout> LOGOUT  </a>";
+                    }
+                    else
+                    {
+                        echo "<a href = 'signin.php' class = signin > LOGIN   </a>
+                            <a href = 'signup.php' class = signup> SIGN UP </a>";
+                    }
+                    ?>
+                    <div class="signed_as">
+                        Signed in as: <u><?php echo $first_name; ?></u>
+                    </div>
                 </div>
-            </div>
         </div>
     </body>
 </html>
