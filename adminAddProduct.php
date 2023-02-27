@@ -41,13 +41,13 @@
                     <label for = 'picture'> Product Picture </label>
                     <input type = 'file'   name = "image"     accept=".jpg, .jpeg, .png" />         <br>
                     <input type = 'submit' name = 'add' value = "Add Product">                                          
-                    <a href="sAdminDashboard.php">Cancel</a>
+                    <a href="adminDashboard.php">Cancel</a>
                 </form>
             </div>
             
             <!------------------------------------- Scripts ----------------------------------------->
             <script>
-                // validate password while typing
+                // disable characters in numeric type only data
             </script>
 
             <?php

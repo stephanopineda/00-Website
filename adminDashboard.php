@@ -90,7 +90,7 @@
                     <td>"  .  htmlspecialchars($row['stock'])        . "</td>
                     <td>"  .  htmlspecialchars($row['price'])        . "</td>
                     <td>"  .  htmlspecialchars($row['description'])  . "</td>
-                    <td><a href = 'edit.php?id=".$row["id"]."' class='btnEdit'>Edit</td>";
+                    <td><a href = 'adminEditProduct.php?id=".$row["id"]."' class='btnEdit'>Edit</td>";
                 }
                 
                 echo "</table>";
