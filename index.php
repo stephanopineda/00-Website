@@ -20,22 +20,23 @@
 
         .bg1{
             position: relative;
-            background-image: url("images/bg1.jpg");
+            background-image: url("images/bg1.png");
             height: 100%; 
             background-position: center;
             background-repeat: no-repeat;
-            background-size: contain;
+            background-size: 100% 100%;
+
         }
 
         .btn_container{
-            font-size: 18px;
+
         }
 
         a{
             text-decoration:none;
             color: black;
-            margin-right: 35px;
-            padding: 6px;
+            
+            padding: 20px;
             background-color: white;
             border-radius: 25px;
             border: 2px solid black;
@@ -45,17 +46,37 @@
             background-color: yellow;
         }
 
-        .signed_as{
-            color:white;
-            font-size: 15px;
-            margin-top:5px;
-            margin-left: -25px;
-        }
-
         .btn_and_signas_container{
             position: absolute;
-            bottom:5px;
-            right: 535px;
+            bottom:210px;
+            right: 180px;
+            width: 500px;
+            height: 10%;
+
+        }
+
+        .signed_as{
+            position: absolute;
+            color:white;
+            font-size: 20px;
+            margin-left: 35%;
+            margin-top: 120px;
+
+        }
+
+        .signin{
+            float:right;
+            margin-right: 100px;
+        }
+        
+        .signup{
+            float:left;
+            margin-left: 100px;
+        }
+
+        .logout{
+            position: absolute;
+            right: 185px;
         }
     </style>    
 
