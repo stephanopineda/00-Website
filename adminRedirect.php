@@ -4,6 +4,7 @@ if(session_status() !== PHP_SESSION_ACTIVE) session_start();
 // SKIP NON-ADMIN PAGES
 // ADMIN REDIRECT
 if (isset($_SESSION["user_type"])) {
+    $user_id = $_SESSION["user_id"];
     $first_name = $_SESSION["first_name"];
     if ($_SESSION["user_type"] === "admin"){
         header('Location: adminDashboard.php');

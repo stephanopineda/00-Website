@@ -86,11 +86,12 @@
                     $userExists = mysqli_query($conn, "SELECT * FROM registeredUsers WHERE email = '".$user."' OR username = '".$user."'");
 
                     if(mysqli_num_rows($userExists)) {
-                        $sql = "SELECT email, first_name, user_type FROM registeredUsers WHERE (email = '".$user."' OR username = '".$user."') AND password = '".$password."'";
+                        $sql = "SELECT id, email, first_name, user_type FROM registeredUsers WHERE (email = '".$user."' OR username = '".$user."') AND password = '".$password."'";
                         $result = $conn->query($sql);
 
                         if ($result->num_rows > 0) {
                             $row = $result->fetch_assoc();
+                            $_SESSION["user_id"] = $row['id'];
                             $_SESSION["email"] = $row['email'];
                             $_SESSION["first_name"] = $row['first_name'];
                             $_SESSION["user_type"] = $row['user_type'];
