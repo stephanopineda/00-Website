@@ -25,7 +25,7 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 350px;
+            width: 400px;
             background-color: white;
             opacity: .86;
             font-size: 20px;
@@ -45,12 +45,17 @@
             width: 250px;
         }
 
+        #btn{
+            height: 50px;
+            font-size: 20px;
+        }
 
     </style>
 
     </head>
     <body>
         <div class="container">
+            <h1>SIGN UP</h1>
             <div>Welcome to Epiphany Scents <br> We are happy to meet you! </div>
             
             <div>
@@ -76,7 +81,7 @@
                             My personal details will be used carefully on purchase purposes only.
                         </div>
 
-                        <input type = 'submit' name = 'signup' value="Sign up">                                         <br>
+                        <input type = 'submit' name = 'signup' value="SIGN UP" id=btn>                                         <br>
                         <a href="signin.php">Already have an account?</a>
                     </form>
                 

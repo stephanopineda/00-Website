@@ -18,28 +18,20 @@
             background-color: #c0bfb7;
         }
 
-        .container{
+        .container_prod{
             text-align: center;
-        }
-
-        a{
-            text-decoration:none;
-            color: black;
-            margin-right: 35px;
-            padding: 4px;
-            background-color: white;
-            border-radius: 25px;
             border: 2px solid black;
         }
 
-        a:hover{
-            background-color: yellow;
+        #header_img{
+            position: relative;
+            height: 100%; 
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: contain;
         }
 
-        .signed_as{
-            position: absolute;
-            right: 385px;
-            bottom: 415px;
+        #signed_as{
             font-size: 15px;
             text-decoration:none;
             padding: 8px;
@@ -53,16 +45,16 @@
             color: #c1a98d;
         }
 
-        /* .heading_container{
-            text-align: center;
-        } */
+        .in_txt_container{
+            position: absolute;
+            right: 400px;
+            top: 200px;
+            padding: 10px;
+            width: 250px;
+        }
 
-        #header_img{
-            position: relative;
-            height: 100%; 
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: contain;
+        #logout{
+            text-decoration: none;
         }
 
         p{
@@ -120,25 +112,29 @@
 
     </head>
     <body>
-        <div class="container">
-            <div class="signed_as">
-                SIGNED IN AS: <span class="name"><?php echo $first_name; ?></span>
-            </div> 
-            <div>
-                <?php 
-                    if (isset($_SESSION["user_type"])){
-                        echo "<a href = 'logout.php'> Logout  </a>";
-                    }
-                    else{
-                        echo "<a href = 'signin.php'> Login   </a>
-                            <a href = 'signup.php'> Sign up </a>";
-                    }
-                ?>
-            </div> <br>
-            <div>   
-                <img src="images/header_img.jpg" alt="header_img" id="header_img">
+        <div class="container_prod">                                                                     <br>
+            <div id="header_img">
+                <img src="images/header_img.jpg" alt="header_img">
+                <div class="in_txt_container">
+
+                    <div id="signed_as">
+                        SIGNED IN AS: <span class="name"><?php echo $first_name; ?></span>
+                    </div>     
+
+                    <div>
+                    <?php 
+                        if (isset($_SESSION["user_type"])){
+                            echo "<a href = 'logout.php' id=logout> Logout  </a>";
+                        }
+                        else{
+                            echo "<a href = 'signin.php'> Login   </a>
+                                <a href = 'signup.php'> Sign up </a>";
+                        }
+                    ?>  
+                    </div>
+
+                </div>
             </div>
-            
             <div class="heading_container">
                 <h1>Epiphany Scents</h1>
                     <p> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 

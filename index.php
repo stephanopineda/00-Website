@@ -25,25 +25,39 @@
             background-position: center;
             background-repeat: no-repeat;
             background-size: 100% 100%;
-
+            border: 2px solid black;
         }
 
         .btn_container{
 
         }
 
-        a{
-            text-decoration:none;
-            color: black;
-            
+        .logout{
             padding: 20px;
-            background-color: white;
-            border-radius: 25px;
-            border: 2px solid black;
         }
 
-        a:hover{
-            background-color: yellow;
+        a:not(#name){
+            text-decoration:none;
+            color: black;
+
+            background-color: #c1a98d;
+
+
+        }
+
+        a:hover:not(#name){
+            background-color: white;
+        }
+
+        #name{
+            text-decoration: none;
+            font-size: 20px;
+            color: white;
+            
+        }
+
+        #name:hover{
+            color: blue;
         }
 
         .btn_and_signas_container{
@@ -61,22 +75,27 @@
             font-size: 20px;
             margin-left: 35%;
             margin-top: 120px;
-
         }
 
         .signin{
             float:right;
             margin-right: 100px;
+            border-radius: 25px;
+            border: 2px solid #564635;
         }
         
         .signup{
             float:left;
             margin-left: 100px;
+            border-radius: 25px;
+            border: 2px solid #564635;
         }
 
         .logout{
             position: absolute;
             right: 185px;
+            border-radius: 25px;
+            border: 2px solid #564635;
         }
     </style>    
 
@@ -94,7 +113,7 @@
 
                         echo "<a href = 'logout.php' class = logout> LOGOUT  </a>";
                         echo "<div class='signed_as'>
-                        Signed in as: <u><a href = 'profile.php?id=".$row["id"]."' class='profile'>".$first_name."</a></u>
+                        Signed in as: <u><a href = 'profile.php? id=".$row["id"]."' class='profile' id=name>".$first_name."</a></u>
                         </div>";
                     }
                     else
@@ -103,7 +122,6 @@
                               <a href = 'signup.php' class = signup> SIGN UP </a>";
                     }
                     ?>
-                    
                 </div>
         </div>
     </body>
