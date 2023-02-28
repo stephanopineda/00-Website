@@ -125,13 +125,22 @@
                 SIGNED IN AS: <span class="name"><?php echo $first_name; ?></span>
             </div> 
             <div>
-                <?php 
+                <?php
                     if (isset($_SESSION["user_type"])){
-                        echo "<a href = 'logout.php'> Logout  </a>";
+                        $email = $_SESSION["email"];
+                        $query = "SELECT id FROM registeredUsers WHERE email = '".$email."'";
+                        $result = mysqli_query($conn, $query);
+                        $row = $result->fetch_assoc();
+
+                        echo "<a href = 'logout.php' class = logout> LOGOUT  </a>";
+                        echo "<div class='signed_as'>
+                        Signed in as: <u><a href = 'profile.php?id=".$row["id"]."' class='profile'>".$first_name."</a></u>
+                        </div>";
                     }
-                    else{
-                        echo "<a href = 'signin.php'> Login   </a>
-                            <a href = 'signup.php'> Sign up </a>";
+                    else
+                    {
+                        echo "<a href = 'signin.php' class = signin> LOGIN   </a>
+                              <a href = 'signup.php' class = signup> SIGN UP </a>";
                     }
                 ?>
             </div> <br>
