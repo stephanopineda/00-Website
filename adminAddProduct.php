@@ -34,14 +34,14 @@
             <br>
             <div>
                 <form method="POST" enctype="multipart/form-data">
-                    <input type = 'text'   name = 'productName' placeholder = "Product Name" required><br>
-                    <input type = 'text'   name = 'stock'       placeholder = "Stock"        required><br>
-                    <input type = 'text'   name = 'price'       placeholder = "Price"        required><br>
-                    <input type = 'text'   name = 'description' placeholder = "Description"  required><br>
-                    <label for = 'picture'> Product Picture </label>
-                    <input type = 'file'   name = "image"     accept=".jpg, .jpeg, .png" />         <br>
-                    <input type = 'submit' name = 'add' value = "Add Product">                                          
+                    <input type = 'text'   name = 'productName' placeholder = "Product Name" required>  <br>
+                    <input type = 'text'   name = 'stock'       placeholder = "Stock"        required>  <br>
+                    <input type = 'text'   name = 'price'       placeholder = "Price"        required>  <br>
+                    <input type = 'text'   name = 'description' placeholder = "Description"  required>  <br>
+                    <label for = 'picture'> Product Picture </label>                                    <br>
+                    <input type = 'file'   name = "image"     accept=".jpg, .jpeg, .png" />             <br>
                     <a href="adminDashboard.php">Cancel</a>
+                    <input type = 'submit' name = 'add' value = "Add Product">                                          
                 </form>
             </div>
             

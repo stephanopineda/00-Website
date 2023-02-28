@@ -16,6 +16,10 @@
             height: 100%;
             margin: 0;
             background-color: #c1a98d;
+            background-image: url("images/bg2.png");
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
         }
 
         .container{
@@ -27,7 +31,7 @@
             transform: translate(-50%, -50%);
             width: 400px;
             background-color: white;
-            opacity: .86;
+            opacity: .80;
             font-size: 20px;
             border-radius: 25px;
         }
@@ -48,6 +52,10 @@
         #btn{
             height: 50px;
             font-size: 20px;
+        }
+
+        .tc,.already{
+            color:brown;
         }
 
     </style>
@@ -77,12 +85,12 @@
                     -->
 
                         <div><input type = 'checkbox' name = 'termsandcond' id = 'termsandcond'  />
-                            I have read and accepted the <a href="terms.php">Terms and Conditions</a>.
+                            I have read and accepted the <a href="terms.php" class="tc">Terms and Conditions</a>.
                             My personal details will be used carefully on purchase purposes only.
                         </div>
 
                         <input type = 'submit' name = 'signup' value="SIGN UP" id=btn>                                         <br>
-                        <a href="signin.php">Already have an account?</a>
+                        <a href="signin.php" class="already">Already have an account?</a>
                     </form>
                 
                 

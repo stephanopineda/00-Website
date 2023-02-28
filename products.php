@@ -21,6 +21,7 @@
         .container_prod{
             text-align: center;
             border: 2px solid black;
+            border-top:none;
         }
 
         #header_img{
@@ -30,6 +31,7 @@
             background-repeat: no-repeat;
             background-size: contain;
         }
+
 
         #signed_as{
             font-size: 15px;
@@ -47,14 +49,26 @@
 
         .in_txt_container{
             position: absolute;
-            right: 400px;
-            top: 200px;
+            /* right: 400px;
+            top: 200px; */
+            right: 25%;
+            top: 70%;
             padding: 10px;
             width: 250px;
         }
 
-        #logout{
+        #logout,#signin,#signup{
             text-decoration: none;
+        }
+
+        #signin{
+            float:left;
+            margin-left: 30%;
+        }
+
+        #signup{
+            float: right;
+            margin-right: 30%;
         }
 
         p{
@@ -108,6 +122,10 @@
             clear: both;
         }
 
+        .footer{
+            width: 100%;
+        }
+
     </style>
 
     </head>
@@ -127,8 +145,8 @@
                             echo "<a href = 'logout.php' id=logout> Logout  </a>";
                         }
                         else{
-                            echo "<a href = 'signin.php'> Login   </a>
-                                <a href = 'signup.php'> Sign up </a>";
+                            echo "<a href = 'signin.php' id=signin> Login   </a>
+                                <a href = 'signup.php' id=signup> Sign up </a>";
                         }
                     ?>  
                     </div>
@@ -169,5 +187,6 @@
                 echo "</div>";
             ?>
         </div>
+        <img src=images/footer.png alt=footer class="footer">
     </body>
 </html>

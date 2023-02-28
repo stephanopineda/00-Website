@@ -26,13 +26,10 @@
             background-repeat: no-repeat;
             background-size: 100% 100%;
             border: 2px solid black;
+            border-top: none;
         }
 
-        .btn_container{
-
-        }
-
-        .logout{
+        .logout,.signin,.signup{
             padding: 20px;
         }
 
@@ -97,13 +94,17 @@
             border-radius: 25px;
             border: 2px solid #564635;
         }
+
+        .footer{
+            width: 100%;
+        }
     </style>    
 
     </head>
     <body>
         <div class="bg1">
             <div class=btn_and_signas_container>
-                <div class=btn_container>
+                <div>
                     <?php
                     if (isset($_SESSION["user_type"])){
                         $email = $_SESSION["email"];
@@ -123,6 +124,8 @@
                     }
                     ?>
                 </div>
+            </div>
         </div>
+        <img src=images/footer.png alt=footer class="footer">
     </body>
 </html>

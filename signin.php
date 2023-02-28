@@ -15,7 +15,11 @@
         body, html {
             height: 100%;
             margin: 0;
-            background-color: #c1a98d;
+            background-image: url("images/bg2.png");
+
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
         }
 
         .container{
@@ -25,10 +29,10 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 350px;
+            width: 400px;
             background-color: white;
-            opacity: .86;
-            font-size: 20px;
+            opacity: .80;
+            font-size: 25px;
             border-radius: 25px;
         }
 
@@ -47,9 +51,10 @@
 
         a{
             text-decoration:none;
-            color: blue;
+            color: brown;
             background-color: white;
         }
+
 
     </style>
 
@@ -58,13 +63,14 @@
         <div class="container">
             <div>
                 <form method = 'POST'>
+                    <h1>LOGIN</h1>
                     We're thrilled to have you back!<br>
                     Let's get you logged in.
                     <input type = 'text' name = 'user' placeholder="Email address or Username"> <br>
                     <input type = 'password' name = 'password' placeholder="Password">          <br>
                     <input type = 'submit' name = 'login' value="Login">                        <br>
-                    <a href="recover.php">Forget your password?</a>                             <br>
-                    <a href="signup.php">Don't have an account? <b>Sign up!<B></a>
+                    <a href="recover.php">Forgot your password?</a>                   <br>
+                    <a href="signup.php">Don't have an account? <b>Sign up!<b></a>
                 </form>
             </div>
 

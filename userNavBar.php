@@ -2,11 +2,15 @@
     <head>
         <style>
             .container_nav{
+                position: sticky;
+                top:0;
                 padding: 20px;
                 background-color: #c1a98d;
                 display: flex;
                 justify-content: space-between;
                 border: 2px solid black;
+                z-index: 100;
+                opacity: .90;
             }
             .container_nav a{
                 text-decoration: none;
