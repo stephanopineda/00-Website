@@ -11,11 +11,44 @@
         <title>Hello <?php echo $_SESSION['first_name']; ?>!</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            background-color: #c0bfb7;
+            text-align: center;
+        }
+
+        .container{
+            width: 30%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 20px;
+        }
+
+        label:not(#pass_input){
+            float: left;
+        }
+
+        input:not(#pass_input,#submit,input[type="date"]){
+            float:right;
+            width: 60%;
+        }
+
+        input[type="date"]{
+            float:right;
+            width: 60.5%;
+         }
         
+
+        
+    </style>
     </head>
     <body>
-        <div>Hello <?php echo $_SESSION['first_name']; ?>!</div>
-        <br><br>
+        <h1>Hello <?php echo $_SESSION['first_name']; ?>!</h1>
+        <br>
         <div>
             <?php
                 $id = intval($_GET['id']);
@@ -34,34 +67,37 @@
                 $birthdate = $row['birthdate'];
             ?>
             
-            <form method="POST" enctype="multipart/form-data">
-                <label for = 'firstName'> First Name: </label>
-                    <input type = 'text'   name = 'firstName' value = '<?php echo $firstName; ?>' required><br>
+            <div class="container">
+                <form method="POST" enctype="multipart/form-data">
+                    <label for = 'firstName'> First Name: </label>
+                        <input type = 'text'   name = 'firstName' value = '<?php echo $firstName; ?>' required><br>
 
-                <label for = 'lastName'> Last Name: </label>
-                    <input type = 'text'   name = 'lastName' value = '<?php echo $lastName; ?>' required><br>
+                    <label for = 'lastName'> Last Name: </label>
+                        <input type = 'text'   name = 'lastName' value = '<?php echo $lastName; ?>' required><br>
 
-                <label for = 'username'> Username: </label>
-                    <input type = 'text'   name = 'username' value = '<?php echo $username; ?>' required><br>
+                    <label for = 'username'> Username: </label>
+                        <input type = 'text'   name = 'username' value = '<?php echo $username; ?>' required><br>
 
-                <label for = 'email'> Email: </label>
-                    <input type = 'text'   name = 'email' value = '<?php echo $email; ?>' required><br>
+                    <label for = 'email'> Email: </label>
+                        <input type = 'text'   name = 'email' value = '<?php echo $email; ?>' required><br>
 
-                <label for = "phoneNum"> Phone Number: </label>
-                    <input type="tel" name="phoneNum" pattern="[9]{1}[0-9]{9}" value = '<?php echo $phoneNum; ?>'><br>
+                    <label for = "phoneNum"> Phone Number: </label>
+                        <input type="tel" name="phoneNum" pattern="[9]{1}[0-9]{9}" value = '<?php echo $phoneNum; ?>'><br>
 
-                <label for = "address"> Address: </label>
-                    <input type="text" name="address" value = '<?php echo $address; ?>'><br>
+                    <label for = "address"> Address: </label>
+                        <input type="text" name="address" value = '<?php echo $address; ?>'><br>
 
-                <label for = "birthdate"> Birthdate: </label>
-                    <input type="date" name="birthdate" value = '<?php echo $birthdate; ?>'><br><br><br>
+                    <label for = "birthdate"> Birthdate: </label>
+                        <input type="date" name="birthdate" value = '<?php echo $birthdate; ?>'><br><br><br>
 
-                <label for = "password"> Enter your password to continue: </label>
-                    <input type="password" name="password" placeholder="Password" required><br>
-
-                <input type = 'submit' name = 'edit' value = "Edit Profile">                                          
-                <a href="index.php">Cancel</a>
-            </form>
+                    <label for = "password" id="enterpass"> Enter your password to continue: </label>
+                        <input type="password" name="password" placeholder="Password" required id="pass_input"><br>
+                    
+                    <a href="index.php">Cancel</a>
+                    <input type = 'submit' name = 'edit' value = "Edit Profile" id="submit">                                          
+                    
+                </form>
+            </div>
         </div>
         
         <!------------------------------------- Scripts ----------------------------------------->
