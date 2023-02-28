@@ -85,19 +85,25 @@
         <div class="bg1">
             <div class=btn_and_signas_container>
                 <div class=btn_container>
-                    <?php 
+                    <?php
                     if (isset($_SESSION["user_type"])){
+                        $email = $_SESSION["email"];
+                        $query = "SELECT id FROM registeredUsers WHERE email = '".$email."'";
+                        $result = mysqli_query($conn, $query);
+                        $row = $result->fetch_assoc();
+
                         echo "<a href = 'logout.php' class = logout> LOGOUT  </a>";
+                        echo "<div class='signed_as'>
+                        Signed in as: <u><a href = 'profile.php?id=".$row["id"]."' class='profile'>".$first_name."</a></u>
+                        </div>";
                     }
                     else
                     {
-                        echo "<a href = 'signin.php' class = signin > LOGIN   </a>
-                            <a href = 'signup.php' class = signup> SIGN UP </a>";
+                        echo "<a href = 'signin.php' class = signin> LOGIN   </a>
+                              <a href = 'signup.php' class = signup> SIGN UP </a>";
                     }
                     ?>
-                    <div class="signed_as">
-                        Signed in as: <u><?php echo $first_name; ?></u>
-                    </div>
+                    
                 </div>
         </div>
     </body>
