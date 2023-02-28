@@ -159,7 +159,7 @@
                         echo "<div class='cell description'>" . $row['description'] . "</div>";
                         //echo "<div class='cell'>" . $row['stock'] . "</div>";
                         //echo "<div class='cell'>" . $row['price'] . "</div>";
-                        echo "<div class='cell cart'><a href = 'toCart.php?id=".$row["id"]."' class='toCart'>Add to Cart</a></div>";
+                        echo "<div class='cell cart'><a href = 'userAddToCart.php?id=".$row["id"]."' class='cart'>Add to Cart</a></div>";
                         $counter++;
                         if ($counter % 3 == 0) {
                             echo '<div class="clearfix"></div>';

@@ -66,6 +66,8 @@
             </div>
             <div>
                 <a href = 'adminAddProduct.php' id="add"> Add Product </a> 
+
+                <!-- View and Accept Orders -->
             </div> <br> <br>
 
             <?php
