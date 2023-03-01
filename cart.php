@@ -3,6 +3,7 @@
     include 'connections.php';
     include 'sAdminRedirect.php';
     include 'adminRedirect.php';
+    include 'userNavBar.php';
 ?>
 
 <html>
@@ -19,23 +20,61 @@
             <div>
                 <a href = 'logout.php'> Logout  </a><br><br><br>
             </div>
-            <br> <br>
-
+            <br>
+            <div> Cart </div>
             <?php
-                $query = "SELECT * FROM shopping_cart WHERE user_id = '$user_id'";
-                $result = mysqli_query($conn, $query);
-
+                // Cart
+                $sqlCart = "SELECT * FROM shopping_cart WHERE user_id = '$user_id'";
+                $cart = mysqli_query($conn, $sqlCart);
 
                 echo "<table class=table>";
                 echo "<tr>
-                <th>" . 'Picture'. "</th>
-                <th>" . 'Name'. "</th>
-                <th>" . 'Quantity'       . "</th>
-                <th>" . 'Date Added'       . "</th>
+                <th>" . 'Picture'         . "</th>
+                <th>" . 'Name'            . "</th>
+                <th>" . 'Quantity'        . "</th>
+                <th>" . 'Available Stock' . "</th>
+                <th>" . 'Date Added'      . "</th>
+                <th>" . 'Actions'      . "</th>
                 </tr>";
 
-                while($row = $result->fetch_assoc()) {
-                    $product_id = $row['product_id'];
+                while($cartRow = $cart->fetch_assoc()) {
+                    $product_id = $cartRow['product_id'];
+                    $storeQuery = "SELECT * FROM storeContent WHERE id = '$product_id'";
+                    $storeRes = mysqli_query($conn, $storeQuery);
+                    $prodRow = $storeRes->fetch_assoc();
+
+                    echo "<tr>
+                    <td><img src='./uploads/" . $prodRow['file_name']    . "' width = '100px'></td>
+                    <td>"  .  htmlspecialchars($prodRow['product_name']) . "</td>
+                    <td>"  .  htmlspecialchars($cartRow['quantity'])     . "</td>
+                    <td>"  .  htmlspecialchars($prodRow['stock'])     . "</td>
+                    <td>"  .  htmlspecialchars($cartRow['date_added'])   . "</td>
+                    <td><a href = 'removeProductFromCart.php?id=".$prodRow["id"]."' class='btnRemove'>Remove</td>
+                    </tr>";
+                }                
+                echo "</table>";
+            ?>
+            <a href ="placeOrder.php" class='order'>Place Order</a>
+
+            <br><br>
+            <div> Orders </div>
+            <?php
+                // Place Order with Status
+                $sqlOrder = "SELECT * FROM orders WHERE user_id = '$user_id' && order_status != 'received'";
+                $order = mysqli_query($conn, $sqlOrder);
+
+                echo "<table class=table>";
+                echo "<tr>
+                <th>" . 'Picture'      . "</th>
+                <th>" . 'Name'         . "</th>
+                <th>" . 'Quantity'     . "</th>
+                <th>" . 'Date Added'   . "</th>
+                <th>" . 'Order Status' . "</th>
+                <th>" . 'Actions'      . "</th>
+                </tr>";
+
+                while($orderRow = $order->fetch_assoc()) {
+                    $product_id = $orderRow['product_id'];
                     $storeQuery = "SELECT * FROM storeContent WHERE id = '$product_id'";
                     $storeRes = mysqli_query($conn, $storeQuery);
                     $prodRow = $storeRes->fetch_assoc();
@@ -43,13 +82,46 @@
                     echo "<tr>
                     <td><img src='./uploads/" . $prodRow['file_name']     . "' width = '100px'></td>
                     <td>"  .  htmlspecialchars($prodRow['product_name']) . "</td>
-                    <td>"  .  htmlspecialchars($row['quantity'])        . "</td>
-                    <td>"  .  htmlspecialchars($row['date_added'])        . "</td>
-                    ";
-                }
-                
+                    <td>"  .  htmlspecialchars($orderRow['quantity'])        . "</td>
+                    <td>"  .  htmlspecialchars($orderRow['date_added'])        . "</td>
+                    <td>"  .  htmlspecialchars($orderRow['order_status'])        . "</td>
+                    <td><a href = 'orderReceived.php?id=".$orderRow["id"]."'class='btnReceive'>Receive
+                        <a href = 'orderCancelled.php?id=".$orderRow["id"]."' class='btnCancel' >Cancel
+                    </td>
+                    </tr>";
+                }                
                 echo "</table>";
+            ?>
+            
+            <br><br>
+            <div> Transaction History </div>
+            <?php
+                // Transaction history or paid 
+                $sqlOrder = "SELECT * FROM orders WHERE user_id = '$user_id' && order_status = 'received'";
+                $order = mysqli_query($conn, $sqlOrder);
 
+                echo "<table class=table>";
+                echo "<tr>
+                <th>" . 'Picture'      . "</th>
+                <th>" . 'Name'         . "</th>
+                <th>" . 'Quantity'     . "</th>
+                <th>" . 'Date Received'   . "</th>
+                </tr>";
+
+                while($orderRow = $order->fetch_assoc()) {
+                    $product_id = $orderRow['product_id'];
+                    $storeQuery = "SELECT * FROM storeContent WHERE id = '$product_id'";
+                    $storeRes = mysqli_query($conn, $storeQuery);
+                    $prodRow = $storeRes->fetch_assoc();
+
+                    echo "<tr>
+                    <td><img src='./uploads/" . $prodRow['file_name']     . "' width = '100px'></td>
+                    <td>"  .  htmlspecialchars($prodRow['product_name']) . "</td>
+                    <td>"  .  htmlspecialchars($orderRow['quantity'])        . "</td>
+                    <td>"  .  htmlspecialchars($orderRow['date_received'])        . "</td>
+                    </tr>";
+                }                
+                echo "</table>";
                 mysqli_close($conn);
             ?>
         </div>

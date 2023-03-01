@@ -67,12 +67,11 @@
             <div>
                 <a href = 'adminAddProduct.php' id="add"> Add Product </a> 
 
-                <!-- View and Accept Orders -->
             </div> <br> <br>
-
+            <div> Products Available on Site</div>
             <?php
-                $query = "SELECT * FROM storeContent";
-                $result = mysqli_query($conn, $query);
+                $sqlProd = "SELECT * FROM storeContent";
+                $prod = mysqli_query($conn, $sqlProd);
                 
                 echo "<table class=table>";
                 echo "<tr>
@@ -84,21 +83,174 @@
                 <th>" . 'action'      . "</th>
                 </tr>";
 
-                while($row = $result->fetch_assoc()) {
+                while($prodRow = $prod->fetch_assoc()) {
                     echo "<tr>
-                    <td><img src='./uploads/" . $row['file_name']     . "' width = '100px'></td>
-                    <td>"  .  htmlspecialchars($row['product_name']) . "</td>
-                    <td>"  .  htmlspecialchars($row['stock'])        . "</td>
-                    <td>"  .  htmlspecialchars($row['price'])        . "</td>
-                    <td>"  .  htmlspecialchars($row['description'])  . "</td>
-                    <td><a href = 'adminEditProduct.php?id=".$row["id"]."' class='btnEdit'>Edit
-                    <a href = 'adminRemoveProduct.php?id=".$row["id"]."' class='btnRemove'>Remove</td>";
+                    <td><img src='./uploads/" . $prodRow['file_name']     . "' width = '100px'></td>
+                    <td>"  .  htmlspecialchars($prodRow['product_name']) . "</td>
+                    <td>"  .  htmlspecialchars($prodRow['stock'])        . "</td>
+                    <td>"  .  htmlspecialchars($prodRow['price'])        . "</td>
+                    <td>"  .  htmlspecialchars($prodRow['description'])  . "</td>
+                    <td><a href = 'adminEditProduct.php?id=".$prodRow["id"]."' class='btnEdit'>Edit
+                    <a href = 'adminRemoveProduct.php?id=".$prodRow["id"]."' class='btnRemove'>Remove</td>
+                    </tr>";
+                }
+                echo "</table>";
+            ?>
+
+            <!-- View and Accept Orders -->
+            <br><br><br>
+            <div> Customer Pending Orders </div>
+            <?php
+                $sqlOrders = "SELECT * FROM orders WHERE order_status = 'Pending'";
+                $orders = mysqli_query($conn, $sqlOrders);
+                
+                echo "<table class=table>";
+                echo "<tr>
+                <th>" . 'Customer Username'    . "</th>
+                <th>" . 'Picture'          . "</th>
+                <th>" . 'Product Name'     . "</th>
+                <th>" . 'Current Stock'            . "</th>
+                <th>" . 'Quantity Ordered' . "</th>
+                <th>" . 'Action'           . "</th>
+                </tr>";
+
+                while($orderRow = $orders->fetch_assoc()) {
+                    $user_id = $orderRow['user_id'];
+                    $product_id = $orderRow['product_id'];
+                        $sqlUsers = "SELECT username FROM registeredUsers WHERE id = $user_id";
+                        $sqlProd = "SELECT product_name, stock, file_name FROM storeContent WHERE id = $product_id";
+                    $users = mysqli_query($conn, $sqlUsers);
+                    $prod = mysqli_query($conn, $sqlProd);
+                    $userRow = $users->fetch_assoc();
+                    $prodRow = $prod->fetch_assoc();
+
+                    echo "<tr>
+                    <td>"  .  htmlspecialchars($userRow['username']) . "</td>
+                    <td><img src='./uploads/" . $prodRow['file_name']    . "'width = '100px'></td>
+                    <td>"  .  htmlspecialchars($prodRow['product_name']) . "</td>
+                    <td>"  .  htmlspecialchars($prodRow['stock'])        . "</td>
+                    <td>"  .  htmlspecialchars($orderRow['quantity'])        . "</td>
+                    <td><a href = 'adminOrderAccept.php?id=".$orderRow["id"]."' class='btnAccept'>Accept</td>";
+                }
+                
+                echo "</table>";
+            ?>
+
+            <br><br><br>
+            <div> To be Shipped </div>
+            <?php
+                $sqlOrders = "SELECT * FROM orders WHERE order_status = 'To be shipped'";
+                $orders = mysqli_query($conn, $sqlOrders);
+                
+                echo "<table class=table>";
+                echo "<tr>
+                <th>" . 'Customer Username'    . "</th>
+                <th>" . 'Picture'          . "</th>
+                <th>" . 'Product Name'     . "</th>
+                <th>" . 'Current Stock'            . "</th>
+                <th>" . 'Quantity Ordered' . "</th>
+                <th>" . 'Action'           . "</th>
+                </tr>";
+
+                while($orderRow = $orders->fetch_assoc()) {
+                    $user_id = $orderRow['user_id'];
+                    $product_id = $orderRow['product_id'];
+                        $sqlUsers = "SELECT username FROM registeredUsers WHERE id = $user_id";
+                        $sqlProd = "SELECT product_name, stock, file_name FROM storeContent WHERE id = $product_id";
+                    $users = mysqli_query($conn, $sqlUsers);
+                    $prod = mysqli_query($conn, $sqlProd);
+                    $userRow = $users->fetch_assoc();
+                    $prodRow = $prod->fetch_assoc();
+
+                    echo "<tr>
+                    <td>"  .  htmlspecialchars($userRow['username']) . "</td>
+                    <td><img src='./uploads/" . $prodRow['file_name']    . "'width = '100px'></td>
+                    <td>"  .  htmlspecialchars($prodRow['product_name']) . "</td>
+                    <td>"  .  htmlspecialchars($prodRow['stock'])        . "</td>
+                    <td>"  .  htmlspecialchars($orderRow['quantity'])        . "</td>
+                    <td><a href = 'adminOrderShipped.php?id=".$orderRow["id"]."' class='btnAccept'>Shipped</td>
+                    </tr>";
+                }
+                
+                echo "</table>";
+            ?>
+
+            <br><br><br>
+            <div> To be Delivered </div>
+            <?php
+                $sqlOrders = "SELECT * FROM orders WHERE order_status = 'To be delivered'";
+                $orders = mysqli_query($conn, $sqlOrders);
+                
+                echo "<table class=table>";
+                echo "<tr>
+                <th>" . 'Customer Username'    . "</th>
+                <th>" . 'Picture'          . "</th>
+                <th>" . 'Product Name'     . "</th>
+                <th>" . 'Current Stock'            . "</th>
+                <th>" . 'Quantity Ordered' . "</th>
+                </tr>";
+
+                while($orderRow = $orders->fetch_assoc()) {
+                    $user_id = $orderRow['user_id'];
+                    $product_id = $orderRow['product_id'];
+                        $sqlUsers = "SELECT username FROM registeredUsers WHERE id = $user_id";
+                        $sqlProd = "SELECT product_name, stock, file_name FROM storeContent WHERE id = $product_id";
+                    $users = mysqli_query($conn, $sqlUsers);
+                    $prod = mysqli_query($conn, $sqlProd);
+                    $userRow = $users->fetch_assoc();
+                    $prodRow = $prod->fetch_assoc();
+
+                    echo "<tr>
+                    <td>"  .  htmlspecialchars($userRow['username']) . "</td>
+                    <td><img src='./uploads/" . $prodRow['file_name']    . "'width = '100px'></td>
+                    <td>"  .  htmlspecialchars($prodRow['product_name']) . "</td>
+                    <td>"  .  htmlspecialchars($prodRow['stock'])        . "</td>
+                    <td>"  .  htmlspecialchars($orderRow['quantity'])        . "</td>
+                    </tr>";
+                }
+                
+                echo "</table>";
+            ?>
+        
+            <br><br><br>
+            <div> Successful Orders </div>
+            <?php
+                $sqlOrders = "SELECT * FROM orders WHERE order_status = 'Received'";
+                $orders = mysqli_query($conn, $sqlOrders);
+                
+                echo "<table class=table>";
+                echo "<tr>
+                <th>" . 'Customer Username'    . "</th>
+                <th>" . 'Picture'          . "</th>
+                <th>" . 'Product Name'     . "</th>
+                <th>" . 'Current Stock'            . "</th>
+                <th>" . 'Quantity Ordered' . "</th>
+                </tr>";
+
+                while($orderRow = $orders->fetch_assoc()) {
+                    $user_id = $orderRow['user_id'];
+                    $product_id = $orderRow['product_id'];
+                        $sqlUsers = "SELECT username FROM registeredUsers WHERE id = $user_id";
+                        $sqlProd = "SELECT product_name, stock, file_name FROM storeContent WHERE id = $product_id";
+                    $users = mysqli_query($conn, $sqlUsers);
+                    $prod = mysqli_query($conn, $sqlProd);
+                    $userRow = $users->fetch_assoc();
+                    $prodRow = $prod->fetch_assoc();
+
+                    echo "<tr>
+                    <td>"  .  htmlspecialchars($userRow['username']) . "</td>
+                    <td><img src='./uploads/" . $prodRow['file_name']    . "'width = '100px'></td>
+                    <td>"  .  htmlspecialchars($prodRow['product_name']) . "</td>
+                    <td>"  .  htmlspecialchars($prodRow['stock'])        . "</td>
+                    <td>"  .  htmlspecialchars($orderRow['quantity'])        . "</td>
+                    </tr>";
                 }
                 
                 echo "</table>";
 
                 mysqli_close($conn);
             ?>
+            </div>
         </div>
     </body>
 </html>

@@ -27,6 +27,7 @@
                     echo "
                         <script>
                             alert('Cart Updated.');
+                            document.location='cart.php'
                         </script>
                     ";
                 }
@@ -43,6 +44,7 @@
                     echo "
                         <script>
                             alert('Added Successfully.');
+                            document.location='cart.php'
                         </script>
                     ";
                 }
