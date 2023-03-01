@@ -96,6 +96,7 @@
             padding: 2%;
             width: 100%;
             transition: transform .1s;
+            box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.2);
         }
 
         .product:hover{

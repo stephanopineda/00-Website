@@ -51,8 +51,12 @@
 
         a{
             text-decoration:none;
-            color: brown;
+            color: #564635;
             background-color: white;
+        }
+
+        a:hover{
+            text-decoration: underline;
         }
 
 
