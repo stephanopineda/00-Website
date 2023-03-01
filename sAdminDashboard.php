@@ -14,6 +14,7 @@
         html,body{
             height: 100%;
             margin: 0;
+            background-color: #c0bfb7;
         }
 
         .container{
@@ -47,10 +48,11 @@
             border-radius: 15px;
             height: 25px;
             box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.2);
+            background-color: beige;
         }
 
         #btn1:hover,#btn2:hover,#btn3:hover{
-            background-color: yellow;
+            background-color: white;
         }
         
     </style>

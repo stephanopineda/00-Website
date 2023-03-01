@@ -12,20 +12,25 @@
 
         <style>
         html,body{
-            position: absolute;
-            text-align: center;
             margin: 0;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
             font-size: 25px;
             line-height: 1.5em;
             border-radius: 25px;
             width: 500px;
+            background-color: #c0bfb7;
         }
 
         .container{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
             text-align: center;
+            border-radius: 25px;
+            border: 2pt solid black;
+            width: 30%;
+            background-color: white;
+    
         }
 
         #cancel{
