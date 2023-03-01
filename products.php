@@ -124,6 +124,7 @@
 
         .footer{
             width: 100%;
+            height: 30%;
         }
 
     </style>
