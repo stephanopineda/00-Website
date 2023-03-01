@@ -45,7 +45,7 @@
     </head>
     <body>
         <div class="container">
-            <div>Add Admin Account</div>
+            <h1>Add Admin Account</h1>
             <div>
                 <form method = 'POST'>
                     <input type = 'text'     name = 'first_name'  placeholder = "First Name"       required><br>

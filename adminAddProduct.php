@@ -14,7 +14,6 @@
         html,body{
             position: absolute;
             text-align: center;
-            margin: 0;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
@@ -30,8 +29,8 @@
         }
 
     </style>
-
     </head>
+    
     <body>
         <div class="container">
             <h1>Add Product</h1>

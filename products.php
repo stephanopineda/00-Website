@@ -26,21 +26,16 @@
 
         #header_img{
             position: relative;
-            height: 100%; 
             background-position: center;
-            background-repeat: no-repeat;
-            background-size: contain;
         }
 
 
         #signed_as{
             font-size: 15px;
-            text-decoration:none;
             padding: 8px;
             background-color: #564635;
             border-radius: 25px;
             color: white;
-            z-index: 1;
         }
 
         .name{
@@ -80,6 +75,13 @@
             font-size: 25px;
         }
 
+        #new{
+            width: 100%;
+            background-color: #564635;
+            color: white;
+            padding: 20px;
+        }
+
         .grid {
             display: grid;
             grid-template-rows: repeat(2, auto);
@@ -116,13 +118,6 @@
 
         #addtocart{
             color: #c1a98d;
-        }
-
-        #new{
-            width: 100%;
-            background-color: #564635;
-            color: white;
-            padding: 20px;
         }
 
         .cell {
@@ -204,8 +199,8 @@
                 while($row = $result->fetch_assoc()) {
                         echo "<div class='product'>";
                         echo "<div class='cell picture'><img src='./uploads/" . $row['file_name'] . "' width = '200px'></div>";
-                        echo "<div class='cell name'>" . $row['product_name'] . "</div>";
-                        echo "<div class='cell description'>" . $row['description'] . "</div>";
+                        echo "<div class='cell name' id='prodname'>" . $row['product_name'] . "</div>";
+                        echo "<div class='cell description' id='desc'>" . $row['description'] . "</div>";
                         echo "<div class='cell'>" . $row['stock'] . "</div>";
                         echo "<div class='cell'>" . $row['price'] . "</div>";
                         echo "<div class='cell cart'><a href = 'userAddToCart.php?id=".$row['id']."' class='cart'>Add to Cart</a></div>";

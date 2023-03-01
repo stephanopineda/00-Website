@@ -19,7 +19,7 @@
             position: absolute;
             text-align: center;
             margin: 0;
-            top: 50%;
+            top: 40%;
             left: 50%;
             transform: translate(-50%, -50%);
             font-size: 25px;
@@ -49,7 +49,7 @@
 
     </head>
     <body>
-        <div>Remove Admin Account</div>
+        <h1>Remove Admin Account</h1>
         <a href="sAdminDashboard.php">Go Back</a>
         <div> <br>
             <form method = 'POST'>

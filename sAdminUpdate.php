@@ -15,7 +15,7 @@
             position: absolute;
             text-align: center;
             margin: 0;
-            top: 50%;
+            top: 40%;
             left: 50%;
             transform: translate(-50%, -50%);
             font-size: 30px;
@@ -27,11 +27,20 @@
             text-align: center;
         }
 
-        .load,.update_form{
+        .load{
             background-color: white;
             opacity: .86;
             font-size: 20px;
             padding: 10px;
+            border-radius: 25px;
+        }
+
+        .update_form{
+            background-color: white;
+            opacity: .86;
+            font-size: 20px;
+            padding: 20px;
+            padding-bottom: 12px;
             border-radius: 25px;
         }
 
@@ -43,6 +52,10 @@
             float: right;
             width: 60%;
 
+        }
+
+        .btns_below_container{
+            padding-top: 5px;
         }
 
         #cancel{
@@ -60,8 +73,7 @@
 
     </head>
     <body>
-        <div>Update Admin Account</div>
-        <br>
+        <h1>Update Admin Account</h1>
         <div>
             <div class="container">
                 <div class="load">
@@ -70,11 +82,11 @@
                             <input type = 'email' name = 'email' placeholder="Email Address" required style=width:53%>
                         <input type = 'submit' name = 'load' value="Load">
                     </form> 
-                </div><br>
+                </div>
 
                 
                     <form method = 'POST'>
-                        <div>Update Form</div><br>
+                        <h2>Update Form</h2>
                     <div class="update_form">
                         <label for= "email">Email: </label>
                             <input type = 'email' name = 'email' id = 'email' placeholder = "Email Address" readonly>             <br>
@@ -88,8 +100,11 @@
                             <input type = 'password' name = 'password'                     placeholder = "Password"         required><br>
                         <label for= "conpassword">Confirm Password: </label>
                             <input type = 'password' name = 'conpassword'                  placeholder = "Confirm Password" required><br>
+
+                        <div class=btns_below_container>
                             <a href="sAdminDashboard.php" id="cancel">Cancel</a>
-                            <input type = 'submit'   name = 'update' value="Update Account" id="update">                                          
+                            <input type = 'submit'   name = 'update' value="Update Account" id="update"> 
+                        </div>                                         
                         
                     </form>
                 </div>

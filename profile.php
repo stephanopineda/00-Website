@@ -35,8 +35,6 @@
             position: relative;
             background-image: url("images/bg3.png");
             height: 100%; 
-            background-position: center;
-            background-repeat: no-repeat;
             background-size: 100% 100%;
         }
 
@@ -60,9 +58,7 @@
             width: 60.5%;
             margin-right: 15px;
          }
-        
-
-        
+         
     </style>
     </head>
     <body>

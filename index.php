@@ -22,8 +22,6 @@
             position: relative;
             background-image: url("images/bg1.png");
             height: 100%; 
-            background-position: center;
-            background-repeat: no-repeat;
             background-size: 100% 100%;
             border: 2px solid black;
             border-top: none;
@@ -36,10 +34,7 @@
         a:not(#name){
             text-decoration:none;
             color: black;
-
             background-color: #c1a98d;
-
-
         }
 
         a:hover:not(#name){
@@ -50,7 +45,6 @@
             text-decoration: none;
             font-size: 20px;
             color: white;
-            
         }
 
         #name:hover{
@@ -63,8 +57,6 @@
             right: 150px;
             width: 500px;
             height: 10%;
-            
-
         }
 
         .signed_as{

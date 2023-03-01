@@ -12,8 +12,6 @@
 
     <style>
         html,body{
-            height: 100%;
-            margin: 0;
             background-color: #c0bfb7;
         }
 
@@ -25,7 +23,6 @@
             margin-left: auto;
             margin-right: auto;
             border-collapse: collapse;
-
         }
 
         th, td {
@@ -51,6 +48,7 @@
             box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.2);
             width: 250px;
             background-color: white;
+            font-size: 2em;
         }
 
         #add:hover{
@@ -67,7 +65,7 @@
     <body>
         <div class="container">
             <div>
-                Signed in as: <?php echo $_SESSION['first_name']; ?> [ADM]
+                <h3>Signed in as: <?php echo $_SESSION['first_name']; ?> [ADM]</h3>
             </div>
             <div>
                 <a href = 'logout.php'> Logout  </a><br><br><br>

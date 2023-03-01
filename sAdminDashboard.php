@@ -49,6 +49,7 @@
             height: 25px;
             box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.2);
             background-color: white;
+            font-size: 2em;
         }
 
         #btn1:hover,#btn2:hover,#btn3:hover{
@@ -61,7 +62,7 @@
     <body>
         <div class="container">
             <div>
-                Signed in as: <?php echo $_SESSION['first_name']; ?>
+                <h3>Signed in as: <?php echo $_SESSION['first_name']; ?> [ADM]</h3>
             </div>
             <div>
                 <a href = 'logout.php'> Logout  </a><br><br><br>

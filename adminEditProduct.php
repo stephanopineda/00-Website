@@ -17,13 +17,13 @@
             margin: 0;
             top: 50%;
             left: 50%;
-            transform: translate(-50%, -50%);
+            transform: translate(-45%, -50%);
             font-size: 25px;
             background-color: #c0bfb7;
         }
 
         .container{
-            width:100%;
+            width:130%;
             border: 2pt solid black;
             padding: 15px;
             background-color: white;
