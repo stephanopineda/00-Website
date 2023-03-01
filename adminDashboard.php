@@ -222,11 +222,12 @@
                 
                 echo "<table class=table>";
                 echo "<tr>
-                <th>" . 'Customer Username'    . "</th>
+                <th>" . 'Customer Username'. "</th>
                 <th>" . 'Picture'          . "</th>
                 <th>" . 'Product Name'     . "</th>
-                <th>" . 'Current Stock'            . "</th>
+                <th>" . 'Current Stock'    . "</th>
                 <th>" . 'Quantity Ordered' . "</th>
+                <th>" . 'Date Received'    . "</th>
                 </tr>";
 
                 while($orderRow = $orders->fetch_assoc()) {
@@ -240,11 +241,12 @@
                     $prodRow = $prod->fetch_assoc();
 
                     echo "<tr>
-                    <td>"  .  htmlspecialchars($userRow['username']) . "</td>
+                    <td>"  .  htmlspecialchars($userRow['username'])     . "</td>
                     <td><img src='./uploads/" . $prodRow['file_name']    . "'width = '100px'></td>
                     <td>"  .  htmlspecialchars($prodRow['product_name']) . "</td>
                     <td>"  .  htmlspecialchars($prodRow['stock'])        . "</td>
-                    <td>"  .  htmlspecialchars($orderRow['quantity'])        . "</td>
+                    <td>"  .  htmlspecialchars($orderRow['quantity'])    . "</td>
+                    <td>"  .  htmlspecialchars($orderRow['date_received'])    . "</td>
                     </tr>";
                 }
                 
