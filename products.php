@@ -120,6 +120,7 @@
             width: 100%;
             background-color: #564635;
             color: white;
+            padding: 20px;
         }
 
         .cell {
@@ -192,7 +193,7 @@
                     <p>
                 
             </div>
-            <h1 id="new">New Arrival<h1>
+            <h1 id="new">NEW ARRIVAL<h1>
 
             <?php
                 $query = "SELECT * FROM storeContent";

@@ -54,7 +54,7 @@
         }
 
         #name:hover{
-            color: blue;
+            color: #564635;
         }
 
         .btn_and_signas_container{
