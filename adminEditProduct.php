@@ -19,25 +19,30 @@
             left: 50%;
             transform: translate(-50%, -50%);
             font-size: 25px;
+            background-color: #c0bfb7;
         }
 
         .container{
-            width:130%
+            width:100%;
+            border: 2pt solid black;
+            padding: 15px;
+            background-color: white;
         }
         
-        label{
+        label:not(#change_pic){
             float: left;
         }
 
         .input{
             float: right;
+            width: 50%;
         }
+
         </style>
     </head>
     <body>
         <div class="container">
-            <div>Edit Product Details</div>
-            <br><br>
+            <h1>Edit Product Details</h1>
             <div>
                 <?php
                     $id = intval($_GET['id']);
@@ -67,10 +72,10 @@
                     <label for = 'price'> Price: </label>
                         <input type = 'text'   name = 'price' value = '<?php echo $price; ?>' required class="input"><br>
 
-                    Current Product Picture:
+                    <div>Current Product Picture:</div>
                         <?php echo "<img src='./uploads/" . $row['file_name'] . "' width = '100px'>";?><br>
 
-                    <label for = 'picture'> Change Product Picture </label>
+                    <label for = 'picture' id="change_pic"> Change Product Picture </label>
                         <input type = 'file'   name = "image"     accept=".jpg, .jpeg, .png" /> <br>
 
                     <a href="adminDashboard.php">Cancel</a>

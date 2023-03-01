@@ -14,6 +14,7 @@
         html,body{
             height: 100%;
             margin: 0;
+            background-color: #c0bfb7;
         }
 
         .container{
@@ -49,10 +50,15 @@
             height: 25px;
             box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.2);
             width: 250px;
+            background-color: white;
         }
 
         #add:hover{
-            background-color: yellow;
+            background-color: beige;
+        }
+
+        hr{
+            padding: 10px;
         }
         
     </style>
@@ -70,7 +76,7 @@
                 <a href = 'adminAddProduct.php' id="add"> Add Product </a> 
 
             </div> <br> <br>
-            <div> Products Available on Site</div>
+            <h1> Products Available on Site</h1>
             <?php
                 $sqlProd = "SELECT * FROM storeContent";
                 $prod = mysqli_query($conn, $sqlProd);
@@ -100,8 +106,8 @@
             ?>
 
             <!-- View and Accept Orders -->
-            <br><br><br>
-            <div> Customer Pending Orders </div>
+            <br><br><hr><br> 
+            <h1> Customer Pending Orders </h1>
             <?php
                 $sqlOrders = "SELECT * FROM orders WHERE order_status = 'Pending'";
                 $orders = mysqli_query($conn, $sqlOrders);

@@ -19,19 +19,22 @@
             left: 50%;
             transform: translate(-50%, -50%);
             font-size: 25px;
-            border-radius: 25px;
+            background-color: #c0bfb7;
         }
 
         .container{
-            text-align: center;
+            width:100%;
+            border: 2pt solid black;
+            padding: 15px;
+            background-color: white;
         }
+
     </style>
 
     </head>
     <body>
         <div class="container">
-            <div>Add Product</div>
-            <br>
+            <h1>Add Product</h1>
             <div>
                 <form method="POST" enctype="multipart/form-data">
                     <input type = 'text'   name = 'productName' placeholder = "Product Name" required>  <br>
