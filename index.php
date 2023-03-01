@@ -63,6 +63,7 @@
             right: 180px;
             width: 500px;
             height: 10%;
+            
 
         }
 

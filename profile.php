@@ -26,10 +26,14 @@
             left: 50%;
             transform: translate(-50%, -50%);
             font-size: 20px;
+            border: 2pt solid black;
+            background-color: white;
+
         }
 
         label:not(#pass_input){
             float: left;
+            margin-left: 5px;
         }
 
         input:not(#pass_input,#submit,input[type="date"]){
@@ -47,8 +51,6 @@
     </style>
     </head>
     <body>
-        <h1>Hello <?php echo $_SESSION['first_name']; ?>!</h1>
-        <br>
         <div>
             <?php
                 $id = intval($_GET['id']);
@@ -68,6 +70,7 @@
             ?>
             
             <div class="container">
+            <h1>Hello <?php echo $_SESSION['first_name']; ?>!</h1>                              <br>
                 <form method="POST" enctype="multipart/form-data">
                     <label for = 'firstName'> First Name: </label>
                         <input type = 'text'   name = 'firstName' value = '<?php echo $firstName; ?>' required><br>
