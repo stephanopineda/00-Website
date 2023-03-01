@@ -31,10 +31,12 @@
             text-align: center;
             padding: 8px;
             border: 1px solid black;
+            background-color: beige;
         }
 
         th {
-            background-color: #dddddd;
+            background-color: #564635;
+            color: white;
         }
 
         #add{
@@ -75,12 +77,12 @@
                 
                 echo "<table class=table>";
                 echo "<tr>
-                <th>" . 'picture'     . "</th>
-                <th>" . 'product_name'. "</th>
-                <th>" . 'stock'       . "</th>
-                <th>" . 'price'       . "</th>
-                <th>" . 'description' . "</th>
-                <th>" . 'action'      . "</th>
+                <th>" . 'PICTURE'     . "</th>
+                <th>" . 'PRODUCT NAME'. "</th>
+                <th>" . 'STOCK'       . "</th>
+                <th>" . 'PRICE'       . "</th>
+                <th>" . 'DESCRIPTION' . "</th>
+                <th>" . 'ACTION'      . "</th>
                 </tr>";
 
                 while($prodRow = $prod->fetch_assoc()) {

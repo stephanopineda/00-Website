@@ -55,7 +55,7 @@
         }
 
         .tc,.already{
-            color:brown;
+            color:#564635;
         }
 
     </style>
@@ -91,10 +91,10 @@
 
                         <input type = 'submit' name = 'signup' value="SIGN UP" id=btn>                                         <br>
                         <a href="signin.php" class="already">Already have an account?</a>
-                    </form>
+                    </form> <br>
                 
                 
-                <div> YOUR BEST SCENT AWAITS YOU.... </div>
+                <div> <i>your best scent awaits you...</i> </div>
             </div>
             
             <!------------------------------------- Scripts ----------------------------------------->

@@ -79,21 +79,50 @@
         }
 
         .grid {
-                display: grid;
-                grid-template-rows: repeat(2, auto);
-                grid-template-columns: repeat(3, 1fr);
-                grid-column-gap: 10px;
-                max-width: 80%;
-                background-color: #c0bfb7;
-                padding: 0px;
-                box-sizing: border-box;
+            display: grid;
+            grid-template-rows: repeat(2, auto);
+            grid-template-columns: repeat(3, 1fr);
+            grid-column-gap: 10px;
+            max-width: 80%;
+            background-color: #c0bfb7;
+            padding: 0px;
+            box-sizing: border-box;
+            margin-left: auto;
+            margin-right: auto;
             }
 
         .product{
             display: grid;
             padding: 2%;
             width: 100%;
+            transition: transform .1s;
+            box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.2);
         }
+
+        .product:hover{
+            transform: scale(1.2);
+        }
+
+        #desc{
+            font-style: italic;
+        }
+        
+        #prodname{
+            text-transform: uppercase;
+            color: #564635;
+        }
+
+        #addtocart{
+            color: #c1a98d;
+        }
+
+        #new{
+            width: 100%;
+            background-color: #564635;
+            color: white;
+            padding: 20px;
+        }
+
         .cell {
             display: flex;
             align-items: center;
@@ -124,6 +153,7 @@
 
         .footer{
             width: 100%;
+            height: 30%;
         }
 
     </style>
@@ -163,7 +193,7 @@
                     <p>
                 
             </div>
-            <h1>New Arrival<h1>
+            <h1 id="new">NEW ARRIVAL<h1>
 
             <?php
                 $query = "SELECT * FROM storeContent";
