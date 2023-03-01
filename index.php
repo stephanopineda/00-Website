@@ -30,7 +30,7 @@
         }
 
         .logout,.signin,.signup{
-            padding: 20px;
+            padding: 30px;
         }
 
         a:not(#name){
@@ -60,7 +60,7 @@
         .btn_and_signas_container{
             position: absolute;
             bottom:210px;
-            right: 180px;
+            right: 150px;
             width: 500px;
             height: 10%;
             

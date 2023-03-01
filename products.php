@@ -49,18 +49,20 @@
 
         .in_txt_container{
             position: absolute;
-            /* right: 400px;
-            top: 200px; */
             right: 25%;
-            top: 70%;
-            padding: 10px;
-            width: 250px;
+            top: 73%;
+            width: 300px;
         }
 
-        #logout,#signin,#signup{
+        .heading_btns{
             text-decoration: none;
+            color:wheat;
         }
 
+        .heading_btns:hover{
+            text-decoration: underline;
+        }
+        
         #signin{
             float:left;
             margin-left: 30%;
@@ -164,7 +166,6 @@
             <div id="header_img">
                 <img src="images/header_img.jpg" alt="header_img">
                 <div class="in_txt_container">
-
                     <div id="signed_as">
                         SIGNED IN AS: <span class="name"><?php echo $first_name; ?></span>
                     </div>     
@@ -172,11 +173,11 @@
                     <div>
                     <?php 
                         if (isset($_SESSION["user_type"])){
-                            echo "<a href = 'logout.php' id=logout> Logout  </a>";
+                            echo "<a href = 'logout.php' class=heading_btns id=logout>  LOGOUT  </a>";
                         }
                         else{
-                            echo "<a href = 'signin.php' id=signin> Login   </a>
-                                <a href = 'signup.php' id=signup> Sign up </a>";
+                            echo "<a href = 'signin.php' class=heading_btns id=signin>  LOGIN   </a>
+                                  <a href = 'signup.php' class=heading_btns id=signup>  SIGN UP </a>";
                         }
                     ?>  
                     </div>

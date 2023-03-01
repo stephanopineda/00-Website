@@ -114,12 +114,12 @@
                 
                 echo "<table class=table>";
                 echo "<tr>
-                <th>" . 'Customer Username'    . "</th>
-                <th>" . 'Picture'          . "</th>
-                <th>" . 'Product Name'     . "</th>
-                <th>" . 'Current Stock'            . "</th>
-                <th>" . 'Quantity Ordered' . "</th>
-                <th>" . 'Action'           . "</th>
+                <th>" . 'CUSTOMER USERNAME'     . "</th>
+                <th>" . 'PICTURE'               . "</th>
+                <th>" . 'PRODUCT NAME'          . "</th>
+                <th>" . 'CURRENT STOCK'         . "</th>
+                <th>" . 'QUANTITY ORDERED'      . "</th>
+                <th>" . 'ACTION'                . "</th>
                 </tr>";
 
                 while($orderRow = $orders->fetch_assoc()) {
