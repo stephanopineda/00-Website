@@ -31,10 +31,12 @@
             text-align: center;
             padding: 8px;
             border: 1px solid black;
+            background-color: beige;
         }
 
         th {
-            background-color: #dddddd;
+            background-color: #564635;
+            color: white;
         }
 
         #btn1,#btn2,#btn3{
@@ -73,12 +75,12 @@
                 $result = mysqli_query($conn, $query);
                 echo "<table class=table>";
                 echo "<tr>
-                <th>" . 'first_name'        . "</th>
-                <th>" . 'last_name'         . "</th>
-                <th>" . 'username'          . "</th>
-                <th>" . 'email'             . "</th>
-                <th>" . 'date_registered'   . "</th>
-                <th>" . 'user_type'         . "</th>
+                <th>" . 'FIRST'             . "</th>
+                <th>" . 'LAST'              . "</th>
+                <th>" . 'USERNAME'          . "</th>
+                <th>" . 'EMAIL'             . "</th>
+                <th>" . 'DATE REGISTERED'   . "</th>
+                <th>" . 'USER TYPE'         . "</th>
                 </tr>";
 
                 while($row = $result->fetch_assoc()) {

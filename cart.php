@@ -14,7 +14,7 @@
     <body>
         <div class="container">
             <div>
-                Signed in as: <?php echo $_SESSION['first_name']; ?> [ADM]
+                Signed in as: <?php echo $_SESSION['first_name']; ?>
             </div>
             <div>
                 <a href = 'logout.php'> Logout  </a><br><br><br>

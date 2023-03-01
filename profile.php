@@ -26,24 +26,39 @@
             left: 50%;
             transform: translate(-50%, -50%);
             font-size: 20px;
-            border: 2pt solid black;
             background-color: white;
+            border-radius: 25px;
+            opacity: .90;
+        }
 
+        .bg3{
+            position: relative;
+            background-image: url("images/bg3.png");
+            height: 100%; 
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+        }
+
+        #name{
+            color: #564635;
         }
 
         label:not(#pass_input){
             float: left;
-            margin-left: 5px;
+            margin-left: 15px;
         }
 
         input:not(#pass_input,#submit,input[type="date"]){
             float:right;
             width: 60%;
+            margin-right: 15px;
         }
 
         input[type="date"]{
             float:right;
             width: 60.5%;
+            margin-right: 15px;
          }
         
 
@@ -51,7 +66,7 @@
     </style>
     </head>
     <body>
-        <div>
+        <div class="bg3">
             <?php
                 $id = intval($_GET['id']);
                 
@@ -65,12 +80,12 @@
                 $email = $row['email'];
                 $password = $row['password'];
                 $phoneNum = $row['phone_num'];
-                $address = $row['address'];
-                $birthdate = $row['birthdate'];
+                // $address = $row['address'];
+                // $birthdate = $row['birthdate'];
             ?>
             
             <div class="container">
-            <h1>Hello <?php echo $_SESSION['first_name']; ?>!</h1>                              <br>
+            <h1>Hello <span id="name"><?php echo $_SESSION['first_name']; ?>!</span></h1>                              <br>
                 <form method="POST" enctype="multipart/form-data">
                     <label for = 'firstName'> First Name: </label>
                         <input type = 'text'   name = 'firstName' value = '<?php echo $firstName; ?>' required><br>
