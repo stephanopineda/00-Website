@@ -100,6 +100,12 @@
             height: 30%;
         }
 
+        @media only screen and (max-width: 700px) {
+            .bg1{
+                border: none;
+            }
+        }
+
     </style>    
 
     </head>

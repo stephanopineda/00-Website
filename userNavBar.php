@@ -42,7 +42,7 @@
                 background-repeat: no-repeat;
                 background-color: transparent;
             }
-
+/* mobile nav */
             .mobile_nav button:hover{
                 border: 2pt solid white;
                 
@@ -105,26 +105,23 @@
                 border: 1px solid #fff;
                 color: #fff;
                 background-color: transparent;
-
                 z-index: 99;
             }
 
             .overlay-content a:hover {
-                background-color: #fff;
+                background-color:burlywood;
                 border: 1px solid transparent;
             }
 
-            
         @media only screen and (max-width: 700px) {
-        .container_nav {
-            display: none;
-            }
-        .mobile_nav button{
-            visibility: visible;
-            position: absolute;
-            
-            z-index: 100;
-        }
+            .container_nav {
+                display: none;
+                }
+            .mobile_nav button{
+                visibility: visible;
+                position: absolute;
+                z-index: 100;
+                }
         }
         </style>
     </head>
@@ -141,7 +138,7 @@
                 <a href="cart.php">MY CART</a>
                 <a href="orders.php">ORDERS</a>
                 <a href="history.php">HISTORY</a>
-                <a href="https://epiphany-scents.carrd.co/ target=_blank id=about_us">ABOUT US</a>					
+                <a href="https://epiphany-scents.carrd.co/" target=_blank id="about_us">ABOUT US</a>					
             </div>
         </div>
     </body>

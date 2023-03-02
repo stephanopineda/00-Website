@@ -26,7 +26,7 @@
 
         #header_img{
             position: relative;
-            background-position: center;
+            max-width: 100%;
         }
 
 
@@ -152,6 +152,16 @@
         .footer{
             width: 100%;
             height: 30%;
+        }
+
+        @media only screen and (max-width: 700px) {
+            #header_img{
+                position: absolute;
+                top:0;
+            }
+            .container_prod{
+                border: none;
+            }
         }
 
     </style>
