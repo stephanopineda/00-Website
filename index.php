@@ -52,33 +52,38 @@
 
         .btn_and_signas_container{
             position: absolute;
-            bottom:210px;
-            right: 150px;
-            width: 500px;
-            height: 10%;
-            font-size: 1.2em;
-        }
-
-        .signed_as{
-            position: absolute;
-            color:white;
-            font-size: 20px;
-            margin-left: 32%;
-            margin-top: 120px;
+            bottom: 25%;
+            right: 4%;
+            height: 100px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width:35%;
+            float:right;
+            font-size: 1.3em; 
         }
 
         .signin{
-            float:right;
-            margin-right: 100px;
+            text-align: center;
+            width: 50%;
             border-radius: 25px;
             border: 2px solid #564635;
         }
         
         .signup{
-            float:left;
-            margin-left: 100px;
+            text-align: center;
+            width: 50%;
             border-radius: 25px;
             border: 2px solid #564635;
+        }
+
+        .signed_as{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color:white;
+            font-size: 20px;
+            margin-top: 120px;
         }
 
         .logout{
@@ -92,34 +97,35 @@
             width: 100%;
             height: 30%;
         }
+
     </style>    
 
     </head>
     <body>
         <div class="bg1">
             <div class=btn_and_signas_container>
-                <div>
-                    <?php
-                    if (isset($_SESSION["user_type"])){
-                        $email = $_SESSION["email"];
-                        $query = "SELECT id FROM registeredUsers WHERE email = '".$email."'";
-                        $result = mysqli_query($conn, $query);
-                        $row = $result->fetch_assoc();
+                <?php
+                if (isset($_SESSION["user_type"])){
+                    $email = $_SESSION["email"];
+                    $query = "SELECT id FROM registeredUsers WHERE email = '".$email."'";
+                    $result = mysqli_query($conn, $query);
+                    $row = $result->fetch_assoc();
 
-                        echo "<a href = 'logout.php' class = logout> LOGOUT  </a>";
-                        echo "<div class='signed_as'>
-                        Signed in as: <u><a href = 'profile.php? id=".$row["id"]."' class='profile' id=name>".$first_name."</a></u>
-                        </div>";
-                    }
-                    else
-                    {
-                        echo "<a href = 'signin.php' class = signin> LOGIN   </a>
-                              <a href = 'signup.php' class = signup> SIGN UP </a>";
-                    }
-                    ?>
-                </div>
+                    echo "<a href = 'logout.php' class = logout> LOGOUT  </a>";
+                    echo "<div class='signed_as'>
+                    Signed in as: <u><a href = 'profile.php? id=".$row["id"]."' class='profile' id=name>".$first_name."</a></u>
+                    </div>";
+                }
+                else
+                {
+                    echo "<a href = 'signin.php' class = signin> LOGIN   </a>
+                            <a href = 'signup.php' class = signup> SIGN UP </a>";
+                }
+                ?>
             </div>
         </div>
         <img src=images/footer.png alt=footer class="footer">
+
+        
     </body>
 </html>

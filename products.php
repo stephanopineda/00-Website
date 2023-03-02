@@ -44,9 +44,9 @@
 
         .in_txt_container{
             position: absolute;
-            right: 25%;
+            right: 27%;
             top: 73%;
-            width: 300px;
+            width: 18%;
         }
 
         .heading_btns{
@@ -60,12 +60,12 @@
         
         #signin{
             float:left;
-            margin-left: 30%;
+            margin-left: 25%;
         }
 
         #signup{
             float: right;
-            margin-right: 30%;
+            margin-right: 25%;
         }
 
         p{
