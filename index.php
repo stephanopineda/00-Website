@@ -57,6 +57,7 @@
             right: 150px;
             width: 500px;
             height: 10%;
+            font-size: 1.2em;
         }
 
         .signed_as{
