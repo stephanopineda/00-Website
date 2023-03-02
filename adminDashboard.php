@@ -56,8 +56,9 @@
         }
 
         hr{
-            padding: 10px;
-        }
+            padding-top: 10px;
+            padding-bottom: 10px;
+            }
         
     </style>
 
@@ -104,7 +105,7 @@
             ?>
 
             <!-- View and Accept Orders -->
-            <br><br><br> 
+            <br><hr>
             <h1> Customer Pending Orders </h1>
             <?php
                 $sqlOrders = "SELECT * FROM orders WHERE order_status = 'Pending'";
@@ -142,8 +143,8 @@
                 echo "</table>";
             ?>
 
-            <br><br><br>
-            <div> To be Shipped </div>
+            <br><hr>
+            <h1> To be Shipped </h1>
             <?php
                 $sqlOrders = "SELECT * FROM orders WHERE order_status = 'To be shipped'";
                 $orders = mysqli_query($conn, $sqlOrders);
@@ -181,8 +182,8 @@
                 echo "</table>";
             ?>
 
-            <br><br><br>
-            <div> To be Delivered </div>
+            <br><hr>
+            <h1> To be Delivered </h1>
             <?php
                 $sqlOrders = "SELECT * FROM orders WHERE order_status = 'To be delivered'";
                 $orders = mysqli_query($conn, $sqlOrders);
@@ -218,8 +219,8 @@
                 echo "</table>";
             ?>
         
-            <br><br><br>
-            <div> Successful Orders </div>
+            <br><hr>
+            <h1> Successful Orders </h1>
             <?php
                 $sqlOrders = "SELECT * FROM orders WHERE order_status = 'Received'";
                 $orders = mysqli_query($conn, $sqlOrders);

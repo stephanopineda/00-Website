@@ -63,7 +63,7 @@
             position: absolute;
             color:white;
             font-size: 20px;
-            margin-left: 35%;
+            margin-left: 32%;
             margin-top: 120px;
         }
 

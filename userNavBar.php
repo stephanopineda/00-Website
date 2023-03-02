@@ -22,6 +22,7 @@
 
             .container_nav a:hover{
                 background-color: white;
+                font-weight: bold;
             }
 
             #index,#products,#cart,#history{

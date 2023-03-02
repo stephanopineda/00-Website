@@ -22,13 +22,14 @@
         .container{
             width: 30%;
             position: absolute;
-            top: 50%;
+            top: 45%;
             left: 50%;
             transform: translate(-50%, -50%);
             font-size: 20px;
             background-color: white;
             border-radius: 25px;
             opacity: .90;
+            padding-bottom: 15px;
         }
 
         .bg3{
@@ -76,8 +77,8 @@
                 $email = $row['email'];
                 $password = $row['password'];
                 $phoneNum = $row['phone_num'];
-                // $address = $row['address'];
-                // $birthdate = $row['birthdate'];
+                $address = $row['address'];
+                $birthdate = $row['birthdate'];
             ?>
             
             <div class="container">
