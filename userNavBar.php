@@ -37,7 +37,7 @@
             <a href = 'products.php' id=products>Products </a>
             <a href = 'cart.php'     id=cart>My Cart  </a>
             <a href = 'history.php'  id=history>History  </a>
-            <a href = 'aboutUs.php'  id=about_us>About Us </a>
+            <a href = 'https://epiphany-scents.carrd.co/'  target=_blank id=about_us>About Us </a>
             </div>";
 
     // if (isset($_SESSION["email"])){
