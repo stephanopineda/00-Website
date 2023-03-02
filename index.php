@@ -15,7 +15,6 @@
         body, html {
             height: 100%;
             margin: 0;
-            background-color: white;
         }
 
         .bg1{
@@ -28,7 +27,7 @@
         }
 
         .logout,.signin,.signup{
-            padding: 30px;
+            padding: 100px;
         }
 
         a:not(#name){
