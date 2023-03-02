@@ -79,7 +79,8 @@
             width: 100%;
             background-color: #564635;
             color: white;
-            padding: 20px;
+            padding-top: 10px;
+            padding-bottom: 10px;
         }
 
         .grid {
