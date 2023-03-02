@@ -7,7 +7,7 @@
     if ($_SESSION["user_type"] != 'user'){
         echo "
             <script>
-                alert('Login so you can use the cart.');
+                alert('Login so you can use view your history.');
                 document.location='signin.php'
             </script>
         ";
