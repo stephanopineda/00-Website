@@ -27,7 +27,7 @@
         }
 
         .logout,.signin,.signup{
-            padding: 100px;
+            padding: 30px;
         }
 
         a:not(#name){
