@@ -104,6 +104,11 @@
             .bg1{
                 border: none;
             }
+            .signup{
+                height: 25%;
+                display: flex;
+                align-items: center;
+            }
         }
 
     </style>    
