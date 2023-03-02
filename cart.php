@@ -4,6 +4,14 @@
     include 'sAdminRedirect.php';
     include 'adminRedirect.php';
     include 'userNavBar.php';
+    if ($_SESSION["user_type"] != 'user'){
+        echo "
+            <script>
+                alert('Login so you can use the cart.');
+                document.location='signin.php'
+            </script>
+        ";
+    }
 ?>
 
 <html>
@@ -79,16 +87,25 @@
                     $storeRes = mysqli_query($conn, $storeQuery);
                     $prodRow = $storeRes->fetch_assoc();
 
+                    if ($orderRow['order_status'] == 'Pending'){
+                        $action = "<a href = 'orderCancel.php?id=".$orderRow["id"]."'class='btnCancel'>Cancel</a>";
+                    }
+                    else if ($orderRow['order_status'] == 'To be delivered'){
+                        $action =  "<a href = 'orderReceived.php?id=".$orderRow["id"]."'class='btnReceive'>Receive</a>";
+                    }
+                    else{
+                        $action = "";
+                    }
+
                     echo "<tr>
-                    <td><img src='./uploads/" . $prodRow['file_name']     . "' width = '100px'></td>
-                    <td>"  .  htmlspecialchars($prodRow['product_name']) . "</td>
-                    <td>"  .  htmlspecialchars($orderRow['quantity'])        . "</td>
-                    <td>"  .  htmlspecialchars($orderRow['date_added'])        . "</td>
-                    <td>"  .  htmlspecialchars($orderRow['order_status'])        . "</td>
-                    <td><a href = 'orderReceived.php?id=".$orderRow["id"]."'class='btnReceive'>Receive
-                        <a href = 'orderCancelled.php?id=".$orderRow["id"]."' class='btnCancel' >Cancel
-                    </td>
+                    <td><img src='./uploads/" . $prodRow['file_name']   . "' width = '100px'></td>
+                    <td>" . htmlspecialchars($prodRow['product_name'])  . "</td>
+                    <td>" . htmlspecialchars($orderRow['quantity'])     . "</td>
+                    <td>" . htmlspecialchars($orderRow['date_added'])   . "</td>
+                    <td>" . htmlspecialchars($orderRow['order_status']) . "</td>
+                    <td>" . $action                                     . "</td>
                     </tr>";
+                    
                 }                
                 echo "</table>";
             ?>
