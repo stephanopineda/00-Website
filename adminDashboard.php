@@ -104,7 +104,7 @@
             ?>
 
             <!-- View and Accept Orders -->
-            <br><br><hr><br> 
+            <br><br><br> 
             <h1> Customer Pending Orders </h1>
             <?php
                 $sqlOrders = "SELECT * FROM orders WHERE order_status = 'Pending'";

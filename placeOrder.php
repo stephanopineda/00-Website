@@ -3,7 +3,6 @@
     include 'adminRedirect.php';
     include 'sAdminRedirect.php';
 
-    // $user_id
     $sqlUserCart = "SELECT * FROM shopping_cart WHERE user_id = $user_id";
     $userCart = mysqli_query($conn, $sqlUserCart);
 
@@ -15,9 +14,26 @@
                 $quantity = $userCartRow['quantity'];
                 $order_status = 'Pending';
                 
-                $sql = "INSERT INTO orders(user_id, product_id, quantity, date_added, order_status)
-                                      VALUES ('$user_id', '$product_id', '$quantity', CURRENT_TIMESTAMP(), '$order_status')";
-    
+                // Check if another same product is pending
+                $sqlOrder = "SELECT * FROM orders
+                            WHERE user_id = '$user_id' && product_id = '$product_id' && order_status = 'pending'";
+                $orderExists = mysqli_query($conn, $sqlOrder);
+
+                if((mysqli_num_rows($orderExists) == 1)){
+                    // Add quant
+                    $row = $orderExists->fetch_assoc();
+                    $orderQuantity = $row['quantity'] + $quantity;
+                    $id = $row['id'];
+                    $sql = "UPDATE orders 
+                            SET quantity = $orderQuantity
+                            WHERE id = '$id'";
+                }
+                else{
+                    // Insert if product is not pending
+                    $sql = "INSERT INTO orders(user_id, product_id, quantity, date_added, order_status)
+                            VALUES ('$user_id', '$product_id', '$quantity', CURRENT_TIMESTAMP(), '$order_status')";
+                }
+            
                 if(mysqli_query($conn, $sql)) {
                     $sqlRemove = "DELETE FROM shopping_cart WHERE product_id = $product_id && user_id = $user_id";
                     mysqli_query($conn, $sqlRemove);
