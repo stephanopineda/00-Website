@@ -76,8 +76,8 @@
                 $email = $row['email'];
                 $password = $row['password'];
                 $phoneNum = $row['phone_num'];
-                // $address = $row['address'];
-                // $birthdate = $row['birthdate'];
+                $address = $row['address'];
+                $birthdate = $row['birthdate'];
             ?>
             
             <div class="container">
