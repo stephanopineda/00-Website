@@ -15,7 +15,7 @@
         body, html {
             height: 100%;
             margin: 0;
-            background-color: #c0bfb7;
+            background-color: white;
         }
 
         .bg1{
