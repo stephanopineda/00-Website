@@ -67,10 +67,10 @@
                         <input type = 'text'   name = 'description' value = '<?php echo $description; ?>' required class="input"><br>
 
                     <label for = 'stock'> Stock: </label>
-                        <input type = 'text'   name = 'stock' value = '<?php echo $stock; ?>' required class="input"><br>
+                        <input type = 'number'   name = 'stock' value = '<?php echo $stock; ?>' required class="input"><br>
 
                     <label for = 'price'> Price: </label>
-                        <input type = 'text'   name = 'price' value = '<?php echo $price; ?>' required class="input"><br>
+                        <input type = 'number'   name = 'price' value = '<?php echo $price; ?>' required class="input"><br>
 
                     <div>Current Product Picture:</div>
                         <?php echo "<img src='./uploads/" . $row['file_name'] . "' width = '100px'>";?><br>

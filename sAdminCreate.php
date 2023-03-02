@@ -47,13 +47,13 @@
         <div class="container">
             <h1>Add Admin Account</h1>
             <div>
-                <form method = 'POST'>
+                <form id = 'create' method = 'POST'>
                     <input type = 'text'     name = 'first_name'  placeholder = "First Name"       required><br>
                     <input type = 'text'     name = 'last_name'   placeholder = "Last Name"        required><br>
                     <input type = 'text'     name = 'username'    placeholder = "Username"         required><br>
                     <input type = 'email'    name = 'email'       placeholder = "Email Address"    required><br>
-                    <input type = 'password' name = 'password'    placeholder = "Password"         required><br>
-                    <input type = 'password' name = 'conpassword' placeholder = "Confirm Password" required><br>
+                    <input type = 'password' name = 'password'    id = 'password'    placeholder = "Password"         required><br>
+                    <input type = 'password' name = 'conpassword' id = 'conpassword' placeholder = "Confirm Password" required><br>
                     <a href="sAdminDashboard.php" id="cancel">Cancel</a>
                     <input type = 'submit'   name = 'create' value = "Create">                                             
                 </form>
@@ -61,7 +61,16 @@
             
             <!------------------------------------- Scripts ----------------------------------------->
             <script>
-                // validate password while typing
+                const form = document.getElementById('create');
+                const passwordInput = document.getElementById('password');
+                const confirmPasswordInput = document.getElementById('conpassword');
+
+                form.addEventListener('submit', (event) => {
+                    if (passwordInput.value !== confirmPasswordInput.value) {
+                    event.preventDefault();
+                    alert('Passwords do not match');
+                    }
+                });
             </script>
 
             <?php
@@ -91,7 +100,7 @@
                             if(mysqli_query($conn, $sql)){
                                 echo "
                                     <script>
-                                        alert('Registration Successful');
+                                        alert('Creation Successful');
                                         document.location='sAdminDashboard.php'
                                     </script>";
                             }

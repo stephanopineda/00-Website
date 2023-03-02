@@ -59,7 +59,9 @@
                     echo "<tr>
                     <td><img src='./uploads/" . $prodRow['file_name']    . "' width = '100px'></td>
                     <td>"  .  htmlspecialchars($prodRow['product_name']) . "</td>
-                    <td>"  .  htmlspecialchars($cartRow['quantity'])     . "</td>
+                    <td><a href = 'quantityMinus.php?id=".$cartRow["id"]."'> - </a>"
+                           .  htmlspecialchars($cartRow['quantity']). "
+                        <a href = 'quantityAdd.php?id=".$cartRow["id"]."'  > + </a></td>
                     <td>"  .  htmlspecialchars($prodRow['stock'])     . "</td>
                     <td>"  .  htmlspecialchars($prodRow['price'])     . "</td>
                     <td>"  .  htmlspecialchars($cartRow['date_added'])   . "</td>

@@ -67,15 +67,15 @@
             <div>Welcome to Epiphany Scents <br> We are happy to meet you! </div>
             
             <div>
-                <form method = 'POST'>
+                <form id = 'signup' method = 'POST'>
                         <input type = 'text' name = 'first_name' placeholder="First Name" required>                     <br>
                         <input type = 'text' name = 'last_name' placeholder="Last Name" required>                       <br>
                         <input type = 'text' name = 'username' placeholder="Username" required>                         <br>
                         <input type = 'email' name = 'email' placeholder="Email Address" required>                      <br>
                         <label for = "phone_num"></label>
                             <input type="tel" name="phone_num" pattern="[9]{1}[0-9]{9}" placeholder= "Phone Number">    <br>
-                        <input type = 'password' name = 'password' id = 'psw1' placeholder="Password" required><br>
-                        <input type = 'password' name = 'conpassword' id = 'psw2' placeholder="Confirm Password" required><br>
+                        <input type = 'password' name = 'password' id = 'password' placeholder="Password" required><br>
+                        <input type = 'password' name = 'conpassword' id = 'conpassword' placeholder="Confirm Password" required><br>
                     
                     <!--
                         <input type = 'date' name = 'birthday' placeholder="Birthday">
@@ -89,7 +89,7 @@
                             My personal details will be used carefully on purchase purposes only.
                         </div>
 
-                        <input type = 'submit' name = 'signup' value="SIGN UP" id=btn onclick='matchPassword()'>                                         <br>
+                        <input type = 'submit' name = 'signup' value="SIGN UP" id=btn'>                                         <br>
                         <a href="signin.php" class="already">Already have an account?</a>
                     </form> <br>
                 
@@ -100,19 +100,15 @@
             <!------------------------------------- Scripts ----------------------------------------->
             <script>
                 document.getElementById('termsandcond').required = true;
-                // validate password while typing
-                function matchPassword() {  
-                    var pw1 = document.getElementById("pswd1");  
-                    var pw2 = document.getElementById("pswd2");  
-                    if(pw1 == pw2)  
-                    {
-                        alert("Password created successfully");  
-                    } else {  
-                        alert("Passwords did not match");  
+                const form = document.getElementById('signup');
+                const passwordInput = document.getElementById('password');
+                const confirmPasswordInput = document.getElementById('conpassword');
+
+                form.addEventListener('submit', (event) => {
+                    if (passwordInput.value !== confirmPasswordInput.value) {
+                    event.preventDefault();
+                    alert('Passwords do not match');
                     }
-                }
-                $(document).ready(function () {
-                    $("#pw1, #pw2").keyup(matchPassword);
                 });
             </script>
 
