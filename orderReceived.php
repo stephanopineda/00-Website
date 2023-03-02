@@ -13,7 +13,7 @@
         echo "
             <script>
                 alert('Order Received.');
-                document.location='cart.php'
+                document.location='history.php'
             </script>
         ";
     }

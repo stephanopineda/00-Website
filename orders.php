@@ -74,7 +74,7 @@
                         $action = "<a href = 'orderCancel.php?id=".$orderRow["id"]."'class='btnCancel'>Cancel</a>";
                     }
                     else if ($orderRow['order_status'] == 'To be delivered'){
-                        $action =  "<a href = 'orderReceived.php?id=".$orderRow["id"]."'class='btnReceive'>Receive</a>";
+                        $action =  "<a href = 'orderReceived.php?id=".$orderRow["id"]."'class='btnReceive'>Received</a>";
                     }
                     else{
                         $action = "";

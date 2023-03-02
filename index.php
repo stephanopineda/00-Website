@@ -53,7 +53,7 @@
         .btn_and_signas_container{
             position: absolute;
             bottom: 25%;
-            right: 4%;
+            right: 5%;
             height: 100px;
             display: flex;
             justify-content: space-between;
@@ -68,6 +68,7 @@
             width: 50%;
             border-radius: 25px;
             border: 2px solid #564635;
+
         }
         
         .signup{
@@ -77,20 +78,21 @@
             border: 2px solid #564635;
         }
 
-        .signed_as{
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color:white;
-            font-size: 20px;
-            margin-top: 120px;
-        }
-
         .logout{
-            position: absolute;
-            right: 185px;
+            position:absolute;
+            right: 17vw;
+            text-align: center;
+
             border-radius: 25px;
             border: 2px solid #564635;
+        }
+
+        .signed_as{
+            position: absolute;
+            right: 16vw;
+            color:white;
+            font-size: 20px;
+            margin-top: 20vh;
         }
 
         .footer{

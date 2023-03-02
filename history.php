@@ -24,6 +24,9 @@
                 height: 100%;
                 margin: 0;
                 background-color: #c0bfb7;
+            }
+
+            .history_container{
                 text-align: center;
             }
             
@@ -49,36 +52,38 @@
     </head>
 
     <body>
-        <h1> Transaction History </h1>
-        <?php
-            // Transaction history or paid 
-            $sqlOrder = "SELECT * FROM orders WHERE user_id = '$user_id' && order_status = 'received'";
-            $order = mysqli_query($conn, $sqlOrder);
+        <div class="history_container">
+            <h1> Transaction History </h1>
+            <?php
+                // Transaction history or paid 
+                $sqlOrder = "SELECT * FROM orders WHERE user_id = '$user_id' && order_status = 'received'";
+                $order = mysqli_query($conn, $sqlOrder);
 
-            echo "<table class=table>";
-            echo "<tr>
-            <th>" . 'PICTURE'      . "</th>
-            <th>" . 'NAME'         . "</th>
-            <th>" . 'QUANTITY'     . "</th>
-            <th>" . 'DATE RECEIVED'   . "</th>
-            </tr>";
-
-            while($orderRow = $order->fetch_assoc()) {
-                $product_id = $orderRow['product_id'];
-                $storeQuery = "SELECT * FROM storeContent WHERE id = '$product_id'";
-                $storeRes = mysqli_query($conn, $storeQuery);
-                $prodRow = $storeRes->fetch_assoc();
-
+                echo "<table class=table>";
                 echo "<tr>
-                <td><img src='./uploads/" . $prodRow['file_name']     . "' width = '100px'></td>
-                <td>"  .  htmlspecialchars($prodRow['product_name']) . "</td>
-                <td>"  .  htmlspecialchars($orderRow['quantity'])        . "</td>
-                <td>"  .  htmlspecialchars($orderRow['date_received'])        . "</td>
+                <th>" . 'PICTURE'      . "</th>
+                <th>" . 'NAME'         . "</th>
+                <th>" . 'QUANTITY'     . "</th>
+                <th>" . 'DATE RECEIVED'   . "</th>
                 </tr>";
-            }                
-            echo "</table>";
-            mysqli_close($conn);
-        ?>
+
+                while($orderRow = $order->fetch_assoc()) {
+                    $product_id = $orderRow['product_id'];
+                    $storeQuery = "SELECT * FROM storeContent WHERE id = '$product_id'";
+                    $storeRes = mysqli_query($conn, $storeQuery);
+                    $prodRow = $storeRes->fetch_assoc();
+
+                    echo "<tr>
+                    <td><img src='./uploads/" . $prodRow['file_name']     . "' width = '100px'></td>
+                    <td>"  .  htmlspecialchars($prodRow['product_name']) . "</td>
+                    <td>"  .  htmlspecialchars($orderRow['quantity'])        . "</td>
+                    <td>"  .  htmlspecialchars($orderRow['date_received'])        . "</td>
+                    </tr>";
+                }                
+                echo "</table>";
+                mysqli_close($conn);
+            ?>
+        </div>
     </body>
 </html>
         

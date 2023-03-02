@@ -24,6 +24,9 @@
                 height: 100%;
                 margin: 0;
                 background-color: #c0bfb7;
+            }
+
+            .cart_container{
                 text-align: center;
             }
 
@@ -78,7 +81,7 @@
         </style>
     </head>
     <body>
-        <div class="container">
+        <div class="cart_container">
             
             <h1> My Cart </h1>
             <?php
