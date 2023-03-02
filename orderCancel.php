@@ -10,7 +10,7 @@
         echo "
             <script>
                 alert('Order Cancelled.');
-                document.location='cart.php'
+                document.location='orders.php'
             </script>
         ";
     }

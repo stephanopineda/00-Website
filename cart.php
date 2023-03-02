@@ -74,25 +74,12 @@
                 border: 2pt solid black;
             }
 
-            .user_container{
-                float: right;
-            }
-
-            hr{
-            padding-top: 10px;
-            padding-bottom: 10px;
-            }
-
 
         </style>
     </head>
     <body>
         <div class="container">
-            <div class="user_container">
-                <div>Signed in as: <?php echo $_SESSION['first_name']; ?></div>
-                <a href = 'logout.php' class="logout"> Logout  </a>
-            </div>
-            <br><br><br>
+            
             <h1> My Cart </h1>
             <?php
                 // Cart
@@ -133,55 +120,10 @@
                     </tr>";
                 }                
                 echo "</table>";
-                echo "<h2> Total Price: $total </h2><br>"
+                echo "<h2> Total Price: $total </h2>"
             ?>
             
-            <a href ="placeOrder.php" class='order'>Place Order</a><br><br><hr>
-
-            <h1> Orders </h1>
-            <?php
-                // Place Order with Status
-                $sqlOrder = "SELECT * FROM orders WHERE user_id = '$user_id' && order_status != 'received'";
-                $order = mysqli_query($conn, $sqlOrder);
-
-                echo "<table class=table>";
-                echo "<tr>
-                <th>" . 'PICTURE'      . "</th>
-                <th>" . 'NAME'         . "</th>
-                <th>" . 'QUANTITY'     . "</th>
-                <th>" . 'DATE ADDED'   . "</th>
-                <th>" . 'ORDER STATUS' . "</th>
-                <th>" . 'ACTIONS'      . "</th>
-                </tr>";
-
-                while($orderRow = $order->fetch_assoc()) {
-                    $product_id = $orderRow['product_id'];
-                    $storeQuery = "SELECT * FROM storeContent WHERE id = '$product_id'";
-                    $storeRes = mysqli_query($conn, $storeQuery);
-                    $prodRow = $storeRes->fetch_assoc();
-
-                    if ($orderRow['order_status'] == 'Pending'){
-                        $action = "<a href = 'orderCancel.php?id=".$orderRow["id"]."'class='btnCancel'>Cancel</a>";
-                    }
-                    else if ($orderRow['order_status'] == 'To be delivered'){
-                        $action =  "<a href = 'orderReceived.php?id=".$orderRow["id"]."'class='btnReceive'>Receive</a>";
-                    }
-                    else{
-                        $action = "";
-                    }
-
-                    echo "<tr>
-                    <td><img src='./uploads/" . $prodRow['file_name']   . "' width = '100px'></td>
-                    <td>" . htmlspecialchars($prodRow['product_name'])  . "</td>
-                    <td>" . htmlspecialchars($orderRow['quantity'])     . "</td>
-                    <td>" . htmlspecialchars($orderRow['date_added'])   . "</td>
-                    <td>" . htmlspecialchars($orderRow['order_status']) . "</td>
-                    <td>" . $action                                     . "</td>
-                    </tr>";
-                    
-                }                
-                echo "</table>";
-            ?>
+            <a href ="placeOrder.php" class='order'>Place Order</a><br><br>
 
         </div>
     </body>

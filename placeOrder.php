@@ -40,7 +40,7 @@
                     echo "
                         <script>
                             alert('Order Placed.');
-                            document.location='cart.php'
+                            document.location='orders.php'
                         </script>
                     ";
                 }

@@ -37,6 +37,7 @@
             <a href = 'index.php'    id=index>Home     </a>
             <a href = 'products.php' id=products>Products </a>
             <a href = 'cart.php'     id=cart>My Cart  </a>
+            <a href = 'orders.php'   id=cart>Orders  </a>
             <a href = 'history.php'  id=history>History  </a>
             <a href = 'https://epiphany-scents.carrd.co/'  target=_blank id=about_us>About Us </a>
             </div>";
