@@ -74,8 +74,8 @@
                         <input type = 'email' name = 'email' placeholder="Email Address" required>                      <br>
                         <label for = "phone_num"></label>
                             <input type="tel" name="phone_num" pattern="[9]{1}[0-9]{9}" placeholder= "Phone Number">    <br>
-                        <input type = 'password' name = 'password' placeholder="Password" required><br>
-                        <input type = 'password' name = 'conpassword' placeholder="Confirm Password" required><br>
+                        <input type = 'password' name = 'password' id = 'psw1' placeholder="Password" required><br>
+                        <input type = 'password' name = 'conpassword' id = 'psw2' placeholder="Confirm Password" required><br>
                     
                     <!--
                         <input type = 'date' name = 'birthday' placeholder="Birthday">
@@ -89,7 +89,7 @@
                             My personal details will be used carefully on purchase purposes only.
                         </div>
 
-                        <input type = 'submit' name = 'signup' value="SIGN UP" id=btn>                                         <br>
+                        <input type = 'submit' name = 'signup' value="SIGN UP" id=btn onclick='matchPassword()'>                                         <br>
                         <a href="signin.php" class="already">Already have an account?</a>
                     </form> <br>
                 
@@ -101,6 +101,19 @@
             <script>
                 document.getElementById('termsandcond').required = true;
                 // validate password while typing
+                function matchPassword() {  
+                    var pw1 = document.getElementById("pswd1");  
+                    var pw2 = document.getElementById("pswd2");  
+                    if(pw1 == pw2)  
+                    {
+                        alert("Password created successfully");  
+                    } else {  
+                        alert("Passwords did not match");  
+                    }
+                }
+                $(document).ready(function () {
+                    $("#pw1, #pw2").keyup(matchPassword);
+                });
             </script>
 
             <?php

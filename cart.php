@@ -41,28 +41,35 @@
                 <th>" . 'Name'            . "</th>
                 <th>" . 'Quantity'        . "</th>
                 <th>" . 'Available Stock' . "</th>
+                <th>" . 'Price' . "</th>
                 <th>" . 'Date Added'      . "</th>
                 <th>" . 'Actions'      . "</th>
                 </tr>";
 
+                $total = 0;
                 while($cartRow = $cart->fetch_assoc()) {
                     $product_id = $cartRow['product_id'];
                     $storeQuery = "SELECT * FROM storeContent WHERE id = '$product_id'";
                     $storeRes = mysqli_query($conn, $storeQuery);
                     $prodRow = $storeRes->fetch_assoc();
+                    $quantity = $cartRow['quantity'];
+                    $price = $prodRow['price'];
+                    $total = $total + $quantity * $price;
 
                     echo "<tr>
                     <td><img src='./uploads/" . $prodRow['file_name']    . "' width = '100px'></td>
                     <td>"  .  htmlspecialchars($prodRow['product_name']) . "</td>
                     <td>"  .  htmlspecialchars($cartRow['quantity'])     . "</td>
                     <td>"  .  htmlspecialchars($prodRow['stock'])     . "</td>
+                    <td>"  .  htmlspecialchars($prodRow['price'])     . "</td>
                     <td>"  .  htmlspecialchars($cartRow['date_added'])   . "</td>
                     <td><a href = 'removeProductFromCart.php?id=".$prodRow["id"]."' class='btnRemove'>Remove</td>
                     </tr>";
                 }                
                 echo "</table>";
+                echo "<div> Total Price: $total </div><br>"
             ?>
-            <a href ="placeOrder.php" class='order'>Place Order</a>
+            <a href ="placeOrder.php" class='order'>Place Order</a><br><br>
 
             <br><br>
             <div> Orders </div>
