@@ -51,7 +51,7 @@
 
         .heading_btns{
             text-decoration: none;
-            color:wheat;
+            color:#fff;
         }
 
         .heading_btns:hover{
