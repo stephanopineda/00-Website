@@ -114,6 +114,7 @@
                 echo "<table class=table>";
                 echo "<tr>
                 <th>" . 'CUSTOMER USERNAME'     . "</th>
+                <th>" . 'ADDRESS'               . "</th>
                 <th>" . 'PICTURE'               . "</th>
                 <th>" . 'PRODUCT NAME'          . "</th>
                 <th>" . 'CURRENT STOCK'         . "</th>
@@ -124,7 +125,7 @@
                 while($orderRow = $orders->fetch_assoc()) {
                     $user_id = $orderRow['user_id'];
                     $product_id = $orderRow['product_id'];
-                        $sqlUsers = "SELECT username FROM registeredUsers WHERE id = $user_id";
+                        $sqlUsers = "SELECT username, address FROM registeredUsers WHERE id = $user_id";
                         $sqlProd = "SELECT product_name, stock, file_name FROM storeContent WHERE id = $product_id";
                     $users = mysqli_query($conn, $sqlUsers);
                     $prod = mysqli_query($conn, $sqlProd);
@@ -133,6 +134,7 @@
 
                     echo "<tr>
                     <td>"  .  htmlspecialchars($userRow['username']) . "</td>
+                    <td>"  .  htmlspecialchars($userRow['address']) . "</td>
                     <td><img src='./uploads/" . $prodRow['file_name']    . "'width = '100px'></td>
                     <td>"  .  htmlspecialchars($prodRow['product_name']) . "</td>
                     <td>"  .  htmlspecialchars($prodRow['stock'])        . "</td>
@@ -151,12 +153,12 @@
                 
                 echo "<table class=table>";
                 echo "<tr>
-                <th>" . 'Customer Username'    . "</th>
-                <th>" . 'Picture'          . "</th>
-                <th>" . 'Product Name'     . "</th>
-                <th>" . 'Current Stock'            . "</th>
-                <th>" . 'Quantity Ordered' . "</th>
-                <th>" . 'Action'           . "</th>
+                <th>" . 'CUSTOMER USERNAME'    . "</th>
+                <th>" . 'PICTURE'          . "</th>
+                <th>" . 'PRODUCT NAME'     . "</th>
+                <th>" . 'CURRENT STOCK'            . "</th>
+                <th>" . 'QUANTITY ORDERED' . "</th>
+                <th>" . 'ACTION'           . "</th>
                 </tr>";
 
                 while($orderRow = $orders->fetch_assoc()) {
@@ -190,11 +192,11 @@
                 
                 echo "<table class=table>";
                 echo "<tr>
-                <th>" . 'Customer Username'    . "</th>
-                <th>" . 'Picture'          . "</th>
-                <th>" . 'Product Name'     . "</th>
-                <th>" . 'Current Stock'            . "</th>
-                <th>" . 'Quantity Ordered' . "</th>
+                <th>" . 'CUSTOMER USERNAME'    . "</th>
+                <th>" . 'PICTURE'          . "</th>
+                <th>" . 'PRODUCT NAME'     . "</th>
+                <th>" . 'CURRENT STOCK'            . "</th>
+                <th>" . 'QUANTITY ORDERED' . "</th>
                 </tr>";
 
                 while($orderRow = $orders->fetch_assoc()) {
@@ -227,12 +229,12 @@
                 
                 echo "<table class=table>";
                 echo "<tr>
-                <th>" . 'Customer Username'. "</th>
-                <th>" . 'Picture'          . "</th>
-                <th>" . 'Product Name'     . "</th>
-                <th>" . 'Current Stock'    . "</th>
-                <th>" . 'Quantity Ordered' . "</th>
-                <th>" . 'Date Received'    . "</th>
+                <th>" . 'CUSTOMER USERNAME'. "</th>
+                <th>" . 'PICTURE'          . "</th>
+                <th>" . 'PRODUCT NAME'     . "</th>
+                <th>" . 'CURRENT STOCK'    . "</th>
+                <th>" . 'QUANTITY ORDERED' . "</th>
+                <th>" . 'DATE RECEIVED'    . "</th>
                 </tr>";
 
                 while($orderRow = $orders->fetch_assoc()) {

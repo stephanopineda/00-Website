@@ -77,6 +77,12 @@
                 border: 2pt solid black;
             }
 
+            @media only screen and (max-width: 700px) {
+                .plus,.minus{
+                    display: block;
+                }
+        }
+
 
         </style>
     </head>

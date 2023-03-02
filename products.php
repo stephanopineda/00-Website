@@ -26,9 +26,7 @@
 
         #header_img{
             position: relative;
-            max-width: 100%;
         }
-
 
         #signed_as{
             font-size: 15px;
@@ -162,6 +160,26 @@
             .container_prod{
                 border: none;
             }
+            .head{
+                margin-top: 38%;
+            }
+            p{
+                margin: 0;
+            }
+            .grid {
+                display: grid;
+                grid-template-rows: repeat(2, auto);
+                grid-template-columns: repeat(1, 1fr);
+            }
+            #img{
+                width: 100%;
+            }
+            .in_txt_container{
+            position: absolute;
+            right: 20%;
+            top: 70%;
+            width: 18%;
+        }
         }
 
     </style>
@@ -170,7 +188,7 @@
     <body>
         <div class="container_prod">                                                                     <br>
             <div id="header_img">
-                <img src="images/header_img.jpg" alt="header_img">
+                <img src="images/header_img.jpg" alt="header_img" id="img">
                 <div class="in_txt_container">
                     <div id="signed_as">
                         SIGNED IN AS: <span class="name"><?php echo $first_name; ?></span>
@@ -191,7 +209,7 @@
                 </div>
             </div>
             <div class="heading_container">
-                <h1>Epiphany Scents</h1>
+                <h1 class="head">Epiphany Scents</h1>
                     <p> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 
                         Nowadays, consumers can buy online via websites, applications, and more with the aid
                         of the internet. The client wants his business to maximize online transactions before investing in a
