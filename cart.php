@@ -123,7 +123,7 @@
                            .  htmlspecialchars($cartRow['quantity']). "
                         <a href = 'quantityAdd.php?id=".$cartRow["id"]."' class=plus > + </a></td>
                     <td>"  .  htmlspecialchars($prodRow['stock'])     . "</td>
-                    <td>"  .  htmlspecialchars($prodRow['price'])     . "</td>
+                    <td>₱"  .  htmlspecialchars($prodRow['price'])     . "</td>
                     <td>"  .  htmlspecialchars($cartRow['date_added'])   . "</td>
                     <td><a href = 'removeProductFromCart.php?id=".$prodRow["id"]."' class='btnRemove'>Remove</td>
                     </tr>";

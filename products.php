@@ -230,8 +230,8 @@
                         echo "<div class='cell picture'><img src='./uploads/" . $row['file_name'] . "' width = '200px'></div>";
                         echo "<div class='cell name' id='prodname'>" . $row['product_name'] . "</div>";
                         echo "<div class='cell description' id='desc'>" . $row['description'] . "</div>";
-                        echo "<div class='cell'>" . $row['stock'] . "</div>";
-                        echo "<div class='cell'>" . $row['price'] . "</div>";
+                        echo "<div class='cell'>Stocks: " . $row['stock'] . "</div>";
+                        echo "<div class='cell'>₱" . $row['price'] . "</div>";
                         echo "<div class='cell cart'><a href = 'userAddToCart.php?id=".$row['id']."' class='cart'>Add to Cart</a></div>";
                         $counter++;
                         if ($counter % 3 == 0) {

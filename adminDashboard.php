@@ -95,7 +95,7 @@
                     <td><img src='./uploads/" . $prodRow['file_name']     . "' width = '100px'></td>
                     <td>"  .  htmlspecialchars($prodRow['product_name']) . "</td>
                     <td>"  .  htmlspecialchars($prodRow['stock'])        . "</td>
-                    <td>"  .  htmlspecialchars($prodRow['price'])        . "</td>
+                    <td>₱"  .  htmlspecialchars($prodRow['price'])        . "</td>
                     <td>"  .  htmlspecialchars($prodRow['description'])  . "</td>
                     <td><a href = 'adminEditProduct.php?id=".$prodRow["id"]."' class='btnEdit'>Edit
                     <a href = 'adminRemoveProduct.php?id=".$prodRow["id"]."' class='btnRemove'>Remove</td>
